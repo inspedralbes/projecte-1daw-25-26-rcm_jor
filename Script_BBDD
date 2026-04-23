@@ -22,7 +22,10 @@ CREATE TABLE INCIDENCIA(
     tecnic INT(11),
     tipo INT(11),
     dataFinalitzacio DATE,
-    prioritat ENUM('Alta','Mitja','Baixa')
+    prioritat ENUM('Alta','Mitja','Baixa'),
+    FOREIGN KEY(departament) REFERENCES DEPARTAMENT(idDepartament),
+    FOREIGN KEY(tecnic) REFERENCES TECNIC(idTecnic),
+    FOREIGN KEY(tipo) REFERENCES TIPO(idTipo)
 );
 
 CREATE TABLE ACTUACIO(
