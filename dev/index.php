@@ -14,7 +14,7 @@
             <div class="card-body">
                 <h5 class="card-title">Profesor</h5>
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Escull usuari
                     </button>
                     <ul class="dropdown-menu">
@@ -24,11 +24,12 @@
                 </div>
             </div>
         </div>
+        <br>
         <div class="card w-50">
             <div class="card-body">
                 <h5 class="card-title">Tecnic</h5>
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Escull usuari
                     </button>
                     <ul class="dropdown-menu">
@@ -38,11 +39,12 @@
                 </div>
             </div>
         </div>
+        <br>
         <div class="card w-50">
             <div class="card-body">
                 <h5 class="card-title">Administrador</h5>
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Escull usuari
                     </button>
                     <ul class="dropdown-menu">
