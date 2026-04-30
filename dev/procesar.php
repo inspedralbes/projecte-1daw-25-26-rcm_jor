@@ -16,10 +16,10 @@ if ($conn->connect_error) {
 // Recoger datos
 $departament = $_POST['Departament'];
 $data = $_POST['Data'];
-$descripcio = $_POST['Descripció'];
+$descripcio = $_POST['Descripcio'];
 
 // Preparar consulta
-$stmt = $conn->prepare("INSERT INTO incidencias (departament, data, descripcio) VALUES (?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO INCIDENCIA (departament, data, descripcio) VALUES (?, ?, ?)");
 $stmt->bind_param("sss", $departament, $data, $descripcio);
 
 // Ejecutar

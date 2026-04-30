@@ -37,3 +37,13 @@ CREATE TABLE ACTUACIO(
     visible INT(1),
     FOREIGN KEY(incidencia) REFERENCES INCIDENCIA(idIncidencia)
     );
+INSERT INTO DEPARTAMENT (nom) VALUES 
+('Secretaría y Administración'),
+('Sala de Profesores'),
+('Laboratorio de Informática'),
+('Biblioteca'),
+('Dirección Académica');
+INSERT INTO TECNIC (nom) VALUES 
+('Marc Ribas'),
+('Laura Soler'),
+('Albert Domènech');
