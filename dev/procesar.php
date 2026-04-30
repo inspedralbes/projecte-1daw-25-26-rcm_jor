@@ -1,6 +1,6 @@
 <?php
 // Datos de conexión
-$host = "localhost";
+$host = "db";
 $user = "ram_jor";
 $pass = "1234";
 $db = "incidencies";

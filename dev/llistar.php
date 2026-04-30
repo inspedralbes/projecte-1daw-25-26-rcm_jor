@@ -3,8 +3,9 @@ $mysqli = include_once "connexio.php";
 
 $return = $mysqli->query("SELECT 
     idIncidencia,
-    descripcio
-FROM INCIDENCIA");
+    descripcio,
+    prioritat
+FROM INCIDENCIA ORDER BY prioritat");
 
 $incidencias = $return->fetch_all(MYSQLI_ASSOC);
 ?>
@@ -41,14 +42,26 @@ $incidencias = $return->fetch_all(MYSQLI_ASSOC);
                     <th scope="col">ID</th>
                     <th scope="col" colspan="2">Descripció</th>
                     <th scope="col"></th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Tancar</th>
+                    <th scope="col">Estat</th>
+                    <th scope="col">Asignar</th>
                 </tr>
             </thead>
 
             <tbody>
-                <?php foreach ($incidencias as $incidencia) { ?>
-                    <tr>
+                <?php foreach ($incidencias as $incidencia) { 
+                    $clase = "";
+
+                    if($incidencia["prioritat"] == "Alta"){
+                        $clase = "table-danger";
+                    }elseif($incidencia["prioritat"] == "Mitja"){
+                        $clase = "table-warning";
+                    }elseif($incidencia["prioritat"] == "Baixa"){
+                        $clase = "table-info";
+                    }
+                    
+                    ?>
+                    
+                    <tr class="<?php echo $clase?>">
                         <th scope="row">
                             <?php echo $incidencia["idIncidencia"]; ?>
                         </th>
@@ -60,11 +73,11 @@ $incidencias = $return->fetch_all(MYSQLI_ASSOC);
                         <td></td>
 
                         <td>
-                            <button class="btn btn-success btn-sm">Editar</button>
+                            <?php echo $incidencia["prioritat"]?>
                         </td>
 
                         <td>
-                            <button class="btn btn-danger btn-sm">Tancar</button>
+                            <button class="btn btn-danger btn-sm">Asignar</button>
                         </td>
                     </tr>
                 <?php } ?>
