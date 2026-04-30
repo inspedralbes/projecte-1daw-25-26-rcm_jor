@@ -45,6 +45,7 @@ $incidencias = $return->fetch_all(MYSQLI_ASSOC);
                     <th scope="col" colspan="2">Descripció</th>
                     <th scope="col"></th>
                     <th scope="col">Prioritat</th>
+                    <th scope="col">Asignar</th>
                 </tr>
             </thead>
 
@@ -67,9 +68,9 @@ $incidencias = $return->fetch_all(MYSQLI_ASSOC);
                             <?php echo $incidencia["idIncidencia"]; ?>
                         </th>
 
-                        <td>
+                        <th>
                             <?php echo $incidencia["nom"]; ?>
-                        </td>
+                        </th>
 
                         <td colspan="2">
                             <?php echo $incidencia["descripcio"]; ?>
@@ -81,6 +82,9 @@ $incidencias = $return->fetch_all(MYSQLI_ASSOC);
                             <?php echo $incidencia["prioritat"]?>
                         </td>
 
+                        <td>
+                            <button class="btn btn-danger btn-sm">Asignar</button>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
