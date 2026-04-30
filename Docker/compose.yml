@@ -2,12 +2,12 @@
 services:
 
   web:
-    image: php:8.2-apache
+    build: .
     container_name: php_apache
     ports:
       - "8080:80"
     volumes:
-      - ./dev:/var/www/html
+      - ../dev:/var/www/html
     depends_on:
       - db
     environment:
