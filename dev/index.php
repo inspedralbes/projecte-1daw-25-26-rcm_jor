@@ -22,7 +22,7 @@
 <main class="container mt-5 d-flex flex-column align-items-center gap-4">
 
     <!-- PROFESOR -->
-    <div class="card w-50 shadow">
+    <div class="card w-50 shadow-lg ">
         <div class="card-body text-center">
             <h5 class="card-title">Professor</h5>
             <p class="card-text">Accés per crear incidències</p>
@@ -34,7 +34,7 @@
     </div>
 
     <!-- TECNIC -->
-    <div class="card w-50 shadow">
+    <div class="card w-50 shadow-lg ">
         <div class="card-body text-center">
             <h5 class="card-title">Tecnic</h5>
             <p class="card-text">Gestió d'incidències assignades</p>
@@ -46,7 +46,7 @@
     </div>
 
     <!-- ADMINISTRADOR -->
-    <div class="card w-50 shadow">
+    <div class="card w-50 shadow-lg  ">
         <div class="card-body text-center">
             <h5 class="card-title">Administrador</h5>
             <p class="card-text">Control total del sistema</p>
