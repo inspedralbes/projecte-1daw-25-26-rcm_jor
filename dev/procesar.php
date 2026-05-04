@@ -25,11 +25,14 @@ $stmt->bind_param("sss", $departament, $data, $descripcio);
 // Ejecutar
 $stmt->execute();
 
+//per obtenir l'ultim id
+$last_id = $conn->insert_id;
+
 // Cerrar
 $stmt->close();
 $conn->close();
 
 // Redirigir
-header("Location: creada.php");
+header("Location: creada.php?id=" . $last_id);
 exit();
 ?>

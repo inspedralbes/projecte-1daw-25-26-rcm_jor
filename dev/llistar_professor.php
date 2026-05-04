@@ -59,6 +59,8 @@ $incidencias = $return->fetch_all(MYSQLI_ASSOC);
                         $clase = "table-warning";
                     }elseif($incidencia["prioritat"] == "Baixa"){
                         $clase = "table-info";
+                    }else{
+                        $clase = "table-primary";
                     }
                     
                     ?>
