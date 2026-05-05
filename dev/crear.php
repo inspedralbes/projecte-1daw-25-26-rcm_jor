@@ -18,11 +18,16 @@
 </header>
 <main>
     <div class="d-flex justify-content-center mt-3">
-        <form action="procesar.php" method="POST">
-            <fieldset class="border border-secondary rounded-2 p-4">
-                
+        <form action="procesar.php" method="POST" style="width: 100%; max-width: 600px;">
+            <fieldset class="border border-secondary rounded-2 p-4 w-100 mt-4">
+
                 <label for="departament">Departament:</label> <br>
-                <input class="mb-3 form-control" style="width: 400px;" name="Departament" id="departament" type="text"> <br>
+                <select class="form-select w-150" name="Departament" id="departament">
+                    <option selected>Posa el teu departament</option>
+                    <option value="1">Sistemes</option>
+                    <option value="2">Xarxes</option>
+                    <option value="3">Suport tècnic</option>
+                </select> <br>
 
                 <label for="data">Data:</label> <br>
                 <input class="mb-3 form-control" name="Data" id="data" type="date"><br>
@@ -36,7 +41,6 @@
     </div>
 </main>
 <?php include_once "footer.php"; ?>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
