@@ -51,7 +51,7 @@
             <h5 class="card-title">Administrador</h5>
             <p class="card-text">Control total del sistema</p>
 
-            <a href="estat.php" class="btn btn-primary w-100">
+            <a href="admin.php" class="btn btn-primary w-100">
                 Entrar
             </a>
         </div>

@@ -2,23 +2,29 @@
 $mysqli = include_once "connexio.php";
 
 $return = $mysqli->query("SELECT 
-    idIncidencia,
-    nom,
-    descripcio,
-    prioritat
-FROM INCIDENCIA ORDER BY prioritat");
+    i.idIncidencia,
+    i.nom,
+    i.descripcio,
+    i.data,
+    i.prioritat,
+    t.nom AS tecnic,
+    d.nom AS departament,
+    tp.nom AS tipus
+FROM INCIDENCIA i
+LEFT JOIN TECNIC t ON i.tecnic = t.idTecnic
+LEFT JOIN DEPARTAMENT d ON i.departament = d.idDepartament
+LEFT JOIN TIPO tp ON i.tipo = tp.idTipo");
+
+$return2 = $mysqli->query("SELECT idTecnic,nom FROM TECNIC");
 
 $incidencias = $return->fetch_all(MYSQLI_ASSOC);
+$tecnics = $return2->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <header>
     <div class="container-fluid bg-dark text-white p-2 mb-2 shadow-lg text-center">
         <div class="row">
-            <div class="col-2">
-                <img class="img-fluid" style="width: 80px;"
-                    src="https://lh3.googleusercontent.com/sitesv/AA5AbUD5FqRdWpu9LzNLp_qxjenHkBb6gIg0-WuDgrrFLCrLVt_kXMiNXY4nKx5ywk84vV9-BG4sJHTBs-CO_O6iXxKC_iLlvajPxyL4zTj2ksM0_l2Gic3hq8s9dSyieFwas4xa8wiScF50XWwqiSkooYCLNiB5v3NLDe7BdpuxfZF7iPLTi37zAXGPfGPZ3FqWg4D2PCoWMx4ttPCM00t_eMzYMedPuTe2SelT=w1280"
-                    alt="">
-            </div>
+            <div class="col-2"></div>
             <div class="col-8">
                 <div class="fs-1">Llistat de les teves incidencies</div>
             </div>
@@ -37,61 +43,82 @@ $incidencias = $return->fetch_all(MYSQLI_ASSOC);
 
 <div class="row justify-content-center">
     <div class="col-10 my-2">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th>NOM</th>
-                    <th scope="col" colspan="2">Descripció</th>
-                    <th scope="col"></th>
-                    <th scope="col">Prioritat</th>
-                    <th scope="col">Asignar</th>
-                </tr>
-            </thead>
+     <table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th class="text-center">ID</th>
+            <th colspan="2" class="text-center">Descripció</th>
+            <th class="text-center">Data</th>
+            <th class="text-center">Tècnic</th>
+            <th class="text-center">Prioritat</th>
+            <th class="text-center">Acció</th>
+        </tr>
+    </thead>
 
-            <tbody>
-                <?php foreach ($incidencias as $incidencia) { 
-                    $clase = "";
+    <tbody>
+        <?php foreach ($incidencias as $incidencia) {
 
-                    if($incidencia["prioritat"] == "Alta"){
-                        $clase = "table-danger";
-                    }elseif($incidencia["prioritat"] == "Mitja"){
-                        $clase = "table-warning";
-                    }elseif($incidencia["prioritat"] == "Baixa"){
-                        $clase = "table-info";
-                    }else{
-                        $clase = "table-primary";
-                    }
-                    
-                    ?>
-                    
-                    <tr class="<?php echo $clase?>">
-                        <th scope="row">
-                            <?php echo $incidencia["idIncidencia"]; ?>
-                        </th>
+            $clase = "";
 
-                        <th>
-                            <?php echo $incidencia["nom"]; ?>
-                        </th>
+            if ($incidencia["prioritat"] == "Alta") {
+                $clase = "table-danger";
+            } elseif ($incidencia["prioritat"] == "Mitja") {
+                $clase = "table-warning";
+            } elseif ($incidencia["prioritat"] == "Baixa") {
+                $clase = "table-info";
+            } else {
+                $clase = "table-primary";
+            }
+        ?>
 
-                        <td colspan="2">
-                            <?php echo $incidencia["descripcio"]; ?>
-                        </td>
+        <tr class="<?php echo $clase ?>">
+            <form action="assignar_incidencia.php" method="POST">
 
-                        <td></td>
+                <td class="text-center">
+                    <?php echo $incidencia["idIncidencia"]; ?>
+                    <input type="hidden" name="idIncidencia" value="<?php echo $incidencia["idIncidencia"]; ?>">
+                </td>
 
-                        <td>
-                            <?php echo $incidencia["prioritat"]?>
-                        </td>
+                <td colspan="2" class="text-center">
+                    <?php echo $incidencia["descripcio"]; ?>
+                </td>
 
-                        <td>
-                            <button class="btn btn-danger btn-sm">Asignar</button>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </tbody>
+                <td class="text-center">
+                    <?php echo $incidencia["data"]; ?>
+                </td>
 
-        </table>
+                <td class="text-center">
+                    <select name="tecnic" class="form-select form-select-sm text-center">
+                        <option value="">Selecciona tècnic</option>
+
+                        <?php foreach ($tecnics as $tec) { ?>
+                            <option value="<?php echo $tec["idTecnic"]; ?>"
+                                <?php if ($incidencia["tecnic"] == $tec["idTecnic"]) echo "selected"; ?>>
+                                <?php echo $tec["nom"]; ?>
+                            </option>
+                        <?php } ?>
+                    </select>
+                </td>
+
+                <td class="text-center">
+                    <select name="prioritat" class="form-select form-select-sm text-center">
+                        <option value="">Selecciona prioritat</option>
+                        <option value="Alta" <?php if ($incidencia["prioritat"] == "Alta") echo "selected"; ?>>Alta</option>
+                        <option value="Mitja" <?php if ($incidencia["prioritat"] == "Mitja") echo "selected"; ?>>Mitja</option>
+                        <option value="Baixa" <?php if ($incidencia["prioritat"] == "Baixa") echo "selected"; ?>>Baixa</option>
+                    </select>
+                </td>
+
+                <td class="text-center">
+                    <button type="submit" class="btn btn-danger btn-sm">Guardar</button>
+                </td>
+
+            </form>
+        </tr>
+
+        <?php } ?>
+    </tbody>
+</table>
     </div>
 </div>
 

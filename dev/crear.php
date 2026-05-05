@@ -1,4 +1,11 @@
-<?php include("header.php"); ?>
+<?php include("header.php");
+$mysqli = include_once "connexio.php";
+
+$departaments = $mysqli->query("
+    SELECT idDepartament, nom 
+    FROM DEPARTAMENT
+")->fetch_all(MYSQLI_ASSOC);
+?>
 <header>
     <div class="container-fluid bg-dark text-white p-2 mb-2 shadow-lg text-center">
         <div class="row">
@@ -21,12 +28,16 @@
         <form action="procesar.php" method="POST" style="width: 100%; max-width: 600px;">
             <fieldset class="border border-secondary rounded-2 p-4 w-100 mt-4">
 
-                <label for="departament">Departament:</label> <br>
-                <select class="form-select w-150" name="Departament" id="departament">
-                    <option selected>Posa el teu departament</option>
-                    <option value="1">Sistemes</option>
-                    <option value="2">Xarxes</option>
-                    <option value="3">Suport tècnic</option>
+                <label for="departament">Departament:</label><br>
+
+                <select class="form-select w-100" name="Departament" id="departament">
+                    <option value="">Posa el teu departament</option>
+
+                    <?php foreach ($departaments as $dep) { ?>
+                        <option value="<?php echo $dep["idDepartament"]; ?>">
+                            <?php echo $dep["nom"]; ?>
+                        </option>
+                    <?php } ?>
                 </select> <br>
 
                 <label for="data">Data:</label> <br>
