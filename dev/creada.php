@@ -43,10 +43,10 @@ $id = $_GET['id'];
                 </div>
             </div>
             <div class="card-footer text-muted">
-                2 days ago
+                Gràcies per confiar en nosaltres!
             </div>
         </div>
     </div>
 </div>
-
-<?php include_once "footer.php"?>
+<a href="index.php" class="btn btn-danger m-3">Tornar</a>
+<?php include_once "footer.php" ?>
