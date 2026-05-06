@@ -24,12 +24,24 @@ $departaments = $mysqli->query("
     </div>
 </header>
 <main>
-    <div class="d-flex justify-content-center mt-3">
+    <!-- CONSULTAR -->
+    <div class="d-flex justify-content-center">
         <form action="procesar.php" method="POST" style="width: 100%; max-width: 600px;">
-            <fieldset class="border border-secondary rounded-2 p-4 w-100 mt-4">
+            <fieldset class="border border-secondary rounded-2 p-3 w-100 mt-4">
+                <legend>Consulta incidencia:</legend>
+                <label for="data">Introdueix el codi d'incidencia:</label> <br>
+                <input class="mb-3 form-control" name="Consultar" id="consultar" type="number"><br>
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- REGISTRAR -->
+    <div class="d-flex justify-content-center">
+        <form action="procesar.php" method="POST" style="width: 100%; max-width: 600px;">
+            <fieldset class="border border-secondary rounded-2 p-3 w-100 mt-4">
+                <legend>Registrar nova incidencia</legend>
 
                 <label for="departament">Departament:</label><br>
-
                 <select class="form-select w-100" name="Departament" id="departament">
                     <option value="">Posa el teu departament</option>
 
@@ -44,12 +56,12 @@ $departaments = $mysqli->query("
                 <input class="mb-3 form-control" name="Data" id="data" type="date"><br>
 
                 <label for="descripcio">Descripció:</label><br>
-                <textarea class="mb-3 form-control" name="Descripcio" id="descripcio" rows="10"></textarea><br>
+                <textarea class="form-control" name="Descripcio" id="descripcio" rows="2"></textarea><br>
                 <button href="index.php" type="submit" class="btn btn-primary">Enviar</button>
             </fieldset>
         </form>
     </div>
-    <a href="index.php" class="btn btn-danger m-3">Tornar</a>
+    <a href="index.php" class="btn btn-danger m-2">Tornar</a>
 </main>
 <?php include_once "footer.php"; ?>
 </body>
