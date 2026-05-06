@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<?php include("header.php"); ?>
-=======
 <?php include("header.php");
 $mysqli = include_once "connexio.php";
 
@@ -9,7 +6,6 @@ $departaments = $mysqli->query("
     FROM DEPARTAMENT
 ")->fetch_all(MYSQLI_ASSOC);
 ?>
->>>>>>> origin/dev_Ramses
 <header>
     <div class="container-fluid bg-dark text-white p-2 mb-2 shadow-lg text-center">
         <div class="row">
@@ -29,21 +25,6 @@ $departaments = $mysqli->query("
 </header>
 <main>
     <div class="d-flex justify-content-center mt-3">
-<<<<<<< HEAD
-        <form action="procesar.php" method="POST">
-            <fieldset class="border border-secondary rounded-2 p-2"style="width: 600px;">
-
-                <label for="departament">Departament:</label> <br>
-                <select class="form-control mb-3" name="Departament">
-                    <option value="1">Llengua</option>
-                    <option value="2" selected>Matemàtiques</option>
-                    <option value="3">Biologia</option>
-                    <option value="4">Química</option>
-                    <option value="5">Física</option>
-                    <option value="6">Informàtica</option>
-                    <option value="7">Anglès</option>
-                    <option value="8">Història</option>
-=======
         <form action="procesar.php" method="POST" style="width: 100%; max-width: 600px;">
             <fieldset class="border border-secondary rounded-2 p-4 w-100 mt-4">
 
@@ -57,7 +38,6 @@ $departaments = $mysqli->query("
                             <?php echo $dep["nom"]; ?>
                         </option>
                     <?php } ?>
->>>>>>> origin/dev_Ramses
                 </select> <br>
 
                 <label for="data">Data:</label> <br>
@@ -72,10 +52,6 @@ $departaments = $mysqli->query("
     </div>
 </main>
 <?php include_once "footer.php"; ?>
-<<<<<<< HEAD
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-=======
->>>>>>> origin/dev_Ramses
 </body>
 
 </html>
