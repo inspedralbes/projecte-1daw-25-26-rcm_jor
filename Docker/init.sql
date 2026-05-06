@@ -38,11 +38,11 @@ CREATE TABLE ACTUACIO(
 );
 
 INSERT INTO DEPARTAMENT (nom) VALUES 
-('Secretaría y Administración'),
+('Secretaria'),
 ('Sala de Profesores'),
-('Laboratorio de Informática'),
+('Laboratorio de Informatica'),
 ('Biblioteca'),
-('Dirección Académica');
+('Direccion Academica');
 
 INSERT INTO TECNIC (nom) VALUES 
 ('Marc Ribas'),

@@ -45,5 +45,6 @@ foreach ($tecnics as $tecnic) {
 
     </div>
 </div>
+<a href="index.php" class="btn btn-danger m-3">Tornar</a>
 
 <?php include_once "footer.php"; ?>
