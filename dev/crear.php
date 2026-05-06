@@ -48,8 +48,8 @@ $departaments = $mysqli->query("
                 <button href="index.php" type="submit" class="btn btn-primary">Enviar</button>
             </fieldset>
         </form>
-
     </div>
+    <a href="index.php" class="btn btn-danger m-3">Tornar</a>
 </main>
 <?php include_once "footer.php"; ?>
 </body>
