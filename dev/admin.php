@@ -42,7 +42,7 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
 <div class="row justify-content-center">
     <div class="col-11 my-2">
         <table class="table table-hover align-middle text-center">
-            <thead class="table-dark">
+            <thead class="table">
                 <tr>
                     <th>ID</th>
                     <th>Descripció</th>
@@ -109,7 +109,7 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                         </td>
 
                         <td>
-                            <button type="submit" class="btn btn-primary btn-sm w-100">Guardar</button>
+                            <button type="submit" class="btn btn-primary btn-sm w-100">Assignar</button>
                         </td>
                     </form>
                 </tr>
