@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 <?php include("header.php"); ?>
+=======
+<?php include("header.php");
+$mysqli = include_once "connexio.php";
+
+$departaments = $mysqli->query("
+    SELECT idDepartament, nom 
+    FROM DEPARTAMENT
+")->fetch_all(MYSQLI_ASSOC);
+?>
+>>>>>>> origin/dev_Ramses
 <header>
     <div class="container-fluid bg-dark text-white p-2 mb-2 shadow-lg text-center">
         <div class="row">
@@ -18,6 +29,7 @@
 </header>
 <main>
     <div class="d-flex justify-content-center mt-3">
+<<<<<<< HEAD
         <form action="procesar.php" method="POST">
             <fieldset class="border border-secondary rounded-2 p-2"style="width: 600px;">
 
@@ -31,6 +43,21 @@
                     <option value="6">Informàtica</option>
                     <option value="7">Anglès</option>
                     <option value="8">Història</option>
+=======
+        <form action="procesar.php" method="POST" style="width: 100%; max-width: 600px;">
+            <fieldset class="border border-secondary rounded-2 p-4 w-100 mt-4">
+
+                <label for="departament">Departament:</label><br>
+
+                <select class="form-select w-100" name="Departament" id="departament">
+                    <option value="">Posa el teu departament</option>
+
+                    <?php foreach ($departaments as $dep) { ?>
+                        <option value="<?php echo $dep["idDepartament"]; ?>">
+                            <?php echo $dep["nom"]; ?>
+                        </option>
+                    <?php } ?>
+>>>>>>> origin/dev_Ramses
                 </select> <br>
 
                 <label for="data">Data:</label> <br>
@@ -45,7 +72,10 @@
     </div>
 </main>
 <?php include_once "footer.php"; ?>
+<<<<<<< HEAD
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+=======
+>>>>>>> origin/dev_Ramses
 </body>
 
 </html>

@@ -15,9 +15,8 @@ CREATE TABLE TECNIC(
 
 CREATE TABLE INCIDENCIA(
     idIncidencia INT (11) AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(200),
     descripcio VARCHAR(2000),
-    data TIMESTAMP,
+    data DATETIME DEFAULT CURRENT_TIMESTAMP,
     departament INT(11),
     tecnic INT(11),
     tipo INT(11),
@@ -31,9 +30,29 @@ CREATE TABLE INCIDENCIA(
 CREATE TABLE ACTUACIO(
     idActuacio INT(11) AUTO_INCREMENT PRIMARY KEY,
     descripcio VARCHAR(2000),
-    data TIMESTAMP,
+    data DATETIME DEFAULT CURRENT_TIMESTAMP,
     temps INT(11),
     incidencia INT(11),
     visible INT(1),
     FOREIGN KEY(incidencia) REFERENCES INCIDENCIA(idIncidencia)
-    );
+);
+
+INSERT INTO DEPARTAMENT (nom) VALUES 
+('Secretaría y Administración'),
+('Sala de Profesores'),
+('Laboratorio de Informática'),
+('Biblioteca'),
+('Dirección Académica');
+
+INSERT INTO TECNIC (nom) VALUES 
+('Marc Ribas'),
+('Laura Soler'),
+('Albert Domènech');
+
+INSERT INTO TIPO (nom) VALUES 
+('Hardware'),
+('Software'),
+('Xarxes'),
+('Seguretat'),
+('Impresores'),
+('Sistemes operatius');
