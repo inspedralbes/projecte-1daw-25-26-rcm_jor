@@ -20,11 +20,7 @@ $descripcio = $_POST['Descripcio'];
 
 // Preparar consulta
 $stmt = $conn->prepare("INSERT INTO INCIDENCIA (departament, data, descripcio) VALUES (?, ?, ?)");
-<<<<<<< HEAD
-$stmt->bind_param("iss", $departament, $data, $descripcio);
-=======
 $stmt->bind_param("sss", $departament, $data, $descripcio);
->>>>>>> origin/dev_Ramses
 
 // Ejecutar
 $stmt->execute();
