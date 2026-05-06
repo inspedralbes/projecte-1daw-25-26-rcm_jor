@@ -7,9 +7,10 @@ $mysqli = include_once "connexio.php";
 $id = $_POST["idIncidencia"];
 $prioritat = $_POST["prioritat"];
 $tecnic = $_POST["tecnic"];
+$tipus = $_POST["tipus"];
 
-$stmt = $mysqli->prepare("UPDATE INCIDENCIA SET prioritat = ?, tecnic = ? WHERE idIncidencia = ?");
-$stmt->bind_param("sii", $prioritat, $tecnic, $id);
+$stmt = $mysqli->prepare("UPDATE INCIDENCIA SET prioritat = ?, tecnic = ?, tipo = ? WHERE idIncidencia = ?");
+$stmt->bind_param("siii", $prioritat, $tecnic,$tipus,$id);
 $stmt->execute();
 
 header("Location: admin.php");
