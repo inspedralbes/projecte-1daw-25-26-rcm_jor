@@ -28,16 +28,7 @@ $id = $_GET['id'];
                 <h1 class="card-title">INCIDENCIA CREADA</h1>
                 <p class="card-text m-5">El teu codi d'incidencia es:</p>
                 <h2><?php echo $id; ?></h2>
-
                 <hr class="my-4">
-
-                <div class="mt-4">
-                    <p class="text-muted">Vols veure l'esta de la teva incidencia?</p>
-                    <form action="" class="d-flex gap-2 justify-content-center">
-                        <input type="number" class="from-control" name="id" placeholder="Introdueix el teu id" required>
-                        <button type="submit" class="btn btn-outline-secondary">Consulta</button>
-                    </form>
-                </div>
                 <div class="mt-4">
                     <a href="crear.php" class="btn btn-primary w-100">Afegir una altra incidència</a>
                 </div>
