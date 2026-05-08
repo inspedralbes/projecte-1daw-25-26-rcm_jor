@@ -18,7 +18,8 @@ $departaments = $mysqli->query("
         </div>
     </div>
 </header>
-<main>
+<main class="text-white">
+
     <!-- CONSULTAR -->
     <div class="d-flex justify-content-center">
         <form action="consultar.php" method="POST" style="width: 100%; max-width: 600px;">
@@ -37,8 +38,8 @@ $departaments = $mysqli->query("
             <fieldset class="border border-secondary rounded-2 p-3 w-100 mt-4">
                 <legend>Registrar nova incidencia</legend>
 
-                <label for="departament">Departament:</label><br>
-                <select class="form-select w-100" name="Departament" id="departament">
+                <label for="departament">Departament:</label>
+                <select class="form-select" name="Departament" id="departament">
                     <option value="">Posa el teu departament</option>
 
                     <?php foreach ($departaments as $dep) { ?>
@@ -46,7 +47,7 @@ $departaments = $mysqli->query("
                             <?php echo $dep["nom"]; ?>
                         </option>
                     <?php } ?>
-                </select> <br>
+                </select> 
 
                 <label for="data">Data:</label> <br>
                 <input class="mb-3 form-control" name="Data" id="data" type="date"><br>
