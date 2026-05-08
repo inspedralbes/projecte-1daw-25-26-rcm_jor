@@ -2,6 +2,7 @@
 $mysqli = include_once "connexio.php";
 
 $return = $mysqli->query("SELECT 
+    i.nom AS titol,
     i.idIncidencia,
     i.descripcio,
     DATE_FORMAT(i.data, '%d/%m/%Y') AS data_formatejada,
@@ -15,7 +16,7 @@ FROM INCIDENCIA i
 LEFT JOIN TECNIC t ON i.tecnic = t.idTecnic
 LEFT JOIN DEPARTAMENT d ON i.departament = d.idDepartament
 LEFT JOIN TIPO tp ON i.tipo = tp.idTipo
-ORDER BY i.idIncidencia DESC");
+ORDER BY i.idIncidencia");
 
 $return2 = $mysqli->query("SELECT idTecnic, nom FROM TECNIC");
 $return3 = $mysqli->query("SELECT idTipo, nom FROM TIPO");
@@ -45,7 +46,7 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
             <thead class="table">
                 <tr>
                     <th>ID</th>
-                    <th>Descripció</th>
+                    <th>Titulo</th>
                     <th>Departament</th>
                     <th>Tipus</th>
                     <th>Data</th>
@@ -70,12 +71,12 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                             <input type="hidden" name="idIncidencia" value="<?php echo $incidencia["idIncidencia"]; ?>">
                         </td>
 
-                        <td class="text-start"><?php echo $incidencia["descripcio"]; ?></td>
+                        <td class="text-start"><?php echo $incidencia["titol"]; ?></td>
                         
                         <td><span class="badge bg-secondary"><?php echo $incidencia["departament"]; ?></span></td>
 
                         <td>
-                            <select name="tipus" class="form-select form-select-sm">
+                            <select name="tipus" class="form-select form-select-sm" required>
                                 <option value="">Selecciona tipus</option>
                                 <?php foreach ($tipus as $t): ?>
                                     <option value="<?php echo $t["idTipo"]; ?>"
@@ -89,7 +90,7 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                         <td style="white-space: nowrap;"><?php echo $incidencia["data_formatejada"]; ?></td>
 
                         <td>
-                            <select name="tecnic" class="form-select form-select-sm">
+                            <select name="tecnic" class="form-select form-select-sm" required>
                                 <option value="">Sense assignar</option>
                                 <?php foreach ($tecnics as $tec): ?>
                                     <option value="<?php echo $tec["idTecnic"]; ?>"
@@ -101,7 +102,7 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                         </td>
 
                         <td>
-                            <select name="prioritat" class="form-select form-select-sm">
+                            <select name="prioritat" class="form-select form-select-sm" required>
                                 <option value="Alta" <?php echo ($incidencia["prioritat"] == "Alta") ? "selected" : ""; ?>>Alta</option>
                                 <option value="Mitja" <?php echo ($incidencia["prioritat"] == "Mitja") ? "selected" : ""; ?>>Mitja</option>
                                 <option value="Baixa" <?php echo ($incidencia["prioritat"] == "Baixa") ? "selected" : ""; ?>>Baixa</option>
