@@ -3,41 +3,38 @@
 $id = $_GET['id'];
 ?>
 <header>
-    <div class="container-fluid bg-dark text-white p-2 mb-2 shadow-lg text-center">
-        <div class="row">
-            <div class="col-2">
-                <img class="img-fluid" style="width: 80px;"
-                    src="https://lh3.googleusercontent.com/sitesv/AA5AbUD5FqRdWpu9LzNLp_qxjenHkBb6gIg0-WuDgrrFLCrLVt_kXMiNXY4nKx5ywk84vV9-BG4sJHTBs-CO_O6iXxKC_iLlvajPxyL4zTj2ksM0_l2Gic3hq8s9dSyieFwas4xa8wiScF50XWwqiSkooYCLNiB5v3NLDe7BdpuxfZF7iPLTi37zAXGPfGPZ3FqWg4D2PCoWMx4ttPCM00t_eMzYMedPuTe2SelT=w1280"
-                    alt="">
+    <div class="container-fluid bg-black bg-gradient text-white p-2 mb-5 shadow text-center">
+        <div class="row align-items-center">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1 class="display-5 fw-bold mb-2">Generació d'incidències</h1>
             </div>
-            <div class="col-8">
-                <div class="fs-1">Registrar incidencia</div>
-            </div>
-            <div class="col-2">
-                <div class="fs-6 pt-3">GRUP4: Ramses i Jordi</div>
+            <div class="col-md-2">
+                <div class="badge bg-secondary px-3 py-2">GRUP 4: Ramses i Jordi</div>
             </div>
         </div>
     </div>
 </header>
-<div class="row d-flex justify-content-center">
-    <div class="col-10 text-center mt-4">
-        <div class="card text-center w-50 mx-auto shadow-lg p-3">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h1 class="card-title">INCIDENCIA CREADA</h1>
-                <p class="card-text m-5">El teu codi d'incidencia es:</p>
-                <h2><?php echo $id; ?></h2>
-                <hr class="my-4">
-                <div class="mt-4">
-                    <a href="crear.php" class="btn btn-primary w-100">Afegir una altra incidència</a>
+
+<main>
+    <div class="row d-flex justify-content-center">
+        <div class="col-10 text-center mt-4">
+            <div class="card text-center w-50 mx-auto shadow-lg bg-primary p-3">
+                <div class="card-body text-white">
+                    <h1 class="card-title">INCIDENCIA CREADA</h1>
+                    <p class="card-text m-5">El teu codi d'incidencia es:</p>
+                    <h2 class="fs-1"><?php echo $id; ?></h2>
+                    <div class="mt-4">
+                        <a href="crear.php" class="btn btn-info w-100">Afegir una altra incidència</a>
+                    </div>
+                    <hr>
                 </div>
-            </div>
-            <div class="card-footer text-muted">
-                Gràcies per confiar en nosaltres!
+                <div class="text-muted text-white">
+                    Gràcies per confiar en nosaltres!
+                </div>
             </div>
         </div>
     </div>
-</div>
-<a href="index.php" class="btn btn-danger m-3">Tornar</a>
+    <a href="index.php" class="btn btn-danger m-3">Tornar</a>
+</main>
 <?php include_once "footer.php" ?>

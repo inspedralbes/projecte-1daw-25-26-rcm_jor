@@ -7,42 +7,40 @@ $departaments = $mysqli->query("
 ")->fetch_all(MYSQLI_ASSOC);
 ?>
 <header>
-    <div class="container-fluid bg-dark text-white p-2 mb-2 shadow-lg text-center">
-        <div class="row">
-            <div class="col-2">
-                <img class="img-fluid" style="width: 80px;"
-                    src="https://lh3.googleusercontent.com/sitesv/AA5AbUD5FqRdWpu9LzNLp_qxjenHkBb6gIg0-WuDgrrFLCrLVt_kXMiNXY4nKx5ywk84vV9-BG4sJHTBs-CO_O6iXxKC_iLlvajPxyL4zTj2ksM0_l2Gic3hq8s9dSyieFwas4xa8wiScF50XWwqiSkooYCLNiB5v3NLDe7BdpuxfZF7iPLTi37zAXGPfGPZ3FqWg4D2PCoWMx4ttPCM00t_eMzYMedPuTe2SelT=w1280"
-                    alt="">
+    <div class="container-fluid bg-black bg-gradient text-white p-2 shadow text-center">
+        <div class="row align-items-center">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1 class="display-5 fw-bold mb-2">Gestionar incidències</h1>
             </div>
-            <div class="col-8">
-                <div class="fs-1">Registrar incidencia</div>
-            </div>
-            <div class="col-2">
-                <div class="fs-6 pt-3">GRUP4: Ramses i Jordi</div>
+            <div class="col-md-2">
+                <div class="badge bg-secondary px-3 py-2">GRUP 4: Ramses i Jordi</div>
             </div>
         </div>
     </div>
 </header>
-<main>
+<main class="text-white">
+
     <!-- CONSULTAR -->
     <div class="d-flex justify-content-center">
-        <form action="procesar.php" method="POST" style="width: 100%; max-width: 600px;">
-            <fieldset class="border border-secondary rounded-2 p-3 w-100 mt-4">
+        <form action="consultar.php" method="POST" style="width:600px;">
+            <fieldset class="border border-black shadow bg-gradient bg-primary rounded-2 p-3 mt-4">
                 <legend>Consulta incidencia:</legend>
-                <label for="data">Introdueix el codi d'incidencia:</label> <br>
-                <input class="mb-3 form-control" name="Consultar" id="consultar" type="number"><br>
+                <label for="id">Introdueix el codi d'incidencia:</label> 
+                <input class=" form-control" name="Consultar" id="id" type="number">
+                <button type="submit" class="btn btn-success mt-3">Enviar</button>
             </fieldset>
         </form>
     </div>
 
     <!-- REGISTRAR -->
-    <div class="d-flex justify-content-center">
-        <form action="procesar.php" method="POST" style="width: 100%; max-width: 600px;">
-            <fieldset class="border border-secondary rounded-2 p-3 w-100 mt-4">
+    <div class="d-flex justify-content-center mt-4">
+        <form action="registrar_incidencia.php" method="POST" style="width:600px;">
+            <fieldset class="border border-black shadow bg-gradient bg-primary rounded-2 p-3 mt-">
                 <legend>Registrar nova incidencia</legend>
 
-                <label for="departament">Departament:</label><br>
-                <select class="form-select w-100" name="Departament" id="departament">
+                <label for="departament">Departament:</label>
+                <select class="form-select" name="Departament" id="departament">
                     <option value="">Posa el teu departament</option>
 
                     <?php foreach ($departaments as $dep) { ?>
@@ -50,14 +48,13 @@ $departaments = $mysqli->query("
                             <?php echo $dep["nom"]; ?>
                         </option>
                     <?php } ?>
-                </select> <br>
+                </select> 
 
-                <label for="data">Data:</label> <br>
-                <input class="mb-3 form-control" name="Data" id="data" type="date"><br>
-
-                <label for="descripcio">Descripció:</label><br>
-                <textarea class="form-control" name="Descripcio" id="descripcio" rows="2"></textarea><br>
-                <button href="index.php" type="submit" class="btn btn-primary">Enviar</button>
+                <label class="mt-2" for="data">Data:</label>
+                <input class="form-control" name="Data" id="data" type="date">
+                <label class="mt-2" for="descripcio">Descripció:</label>
+                <textarea class="form-control" name="Descripcio" id="descripcio" rows="2"></textarea>
+                <button type="submit" class="btn btn-success mt-3">Enviar</button>
             </fieldset>
         </form>
     </div>
