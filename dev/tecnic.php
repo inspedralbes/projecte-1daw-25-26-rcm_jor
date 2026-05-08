@@ -2,7 +2,7 @@
 include_once "header.php";
 include_once "connexio.php";
 
-$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+$id = $_GET['id'];
 
 $stmt = $mysqli->prepare("SELECT 
     i.idIncidencia,
@@ -73,14 +73,14 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                     };
                     ?>
                     <tr class="<?php echo $clase ?>">
-                        <form action="assignar_incidencia.php" method="POST">
+                        <form action="actuacio.php" method="POST">
 
                             <td>
                                 <strong><?php echo $incidencia["idIncidencia"]; ?></strong>
                                 <input type="hidden" name="idIncidencia" value="<?php echo $incidencia["idIncidencia"]; ?>">
                             </td>
 
-                            <td class="text-start">
+                            <td class="text-center">
                                 <?php echo $incidencia["descripcio"]; ?>
                             </td>
 
@@ -105,11 +105,7 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                             </td>
 
                             <td>
-                                <select name="prioritat" class="form-select form-select-sm">
-                                    <option value="Alta" <?php echo ($incidencia["prioritat"] == "Alta") ? "selected" : ""; ?>>Alta</option>
-                                    <option value="Mitja" <?php echo ($incidencia["prioritat"] == "Mitja") ? "selected" : ""; ?>>Mitja</option>
-                                    <option value="Baixa" <?php echo ($incidencia["prioritat"] == "Baixa") ? "selected" : ""; ?>>Baixa</option>
-                                </select>
+                                 <?php echo $incidencia["prioritat"]; ?>
                             </td>
 
                             <td>
