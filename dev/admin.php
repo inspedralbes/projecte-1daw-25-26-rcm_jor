@@ -3,6 +3,7 @@ $mysqli = include_once "connexio.php";
 
 $return = $mysqli->query("SELECT 
     i.nom AS titol,
+    i.estat,
     i.idIncidencia,
     i.descripcio,
     DATE_FORMAT(i.data, '%d/%m/%Y') AS data_formatejada,
@@ -34,7 +35,7 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                 <h1 class="display-5 fw-bold mb-2">Assignació d'incidències</h1>
             </div>
             <div class="col-md-2">
-                <div class="badge bg-secondary px-3 py-2">GRUP 4: Ramses i Jordi</div>
+                <a href="index.php" class="badge bg-secondary px-3 py-2">GRUP 4: Ramses i Jordi</a>
             </div>
         </div>
     </div>
@@ -45,8 +46,8 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
         <table class="table table-hover align-middle text-center">
             <thead class="table ">
                 <tr>
-                    <th>ID</th>
                     <th>Titulo</th>
+                    <th>Estat</th>
                     <th>Departament</th>
                     <th>Tipus</th>
                     <th>Data</th>
@@ -66,17 +67,16 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                 ?>
                 <tr class="<?php echo $clase ?>">
                     <form action="assignar_incidencia.php" method="POST">
-                        <td>
-                            <strong><?php echo $incidencia["idIncidencia"]; ?></strong>
-                            <input type="hidden" name="idIncidencia" value="<?php echo $incidencia["idIncidencia"]; ?>">
-                        </td>
+                        <input type="hidden" name="idIncidencia" value="<?php echo $incidencia['idIncidencia']; ?>">
 
-                        <td class="text-start"><?php echo $incidencia["titol"]; ?></td>
+                        <td class="text-center"><?php echo $incidencia["titol"]; ?></td>
+
+                        <td class="text-center"><?php echo $incidencia["estat"]?></td>
                         
                         <td><span class="badge bg-secondary"><?php echo $incidencia["departament"]; ?></span></td>
 
-                        <td>
-                            <select name="tipus" class="form-select form-select-sm" required>
+                        <td class="text-center">
+                            <select name="tipus" class="form-select form-select-sm w-50 mx-auto" required>
                                 <option value="">Selecciona tipus</option>
                                 <?php foreach ($tipus as $t): ?>
                                     <option value="<?php echo $t["idTipo"]; ?>"
@@ -90,7 +90,7 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                         <td style="white-space: nowrap;"><?php echo $incidencia["data_formatejada"]; ?></td>
 
                         <td>
-                            <select name="tecnic" class="form-select form-select-sm" required>
+                            <select name="tecnic" class="form-select form-select-sm w-50 mx-auto" required>
                                 <option value="">Sense assignar</option>
                                 <?php foreach ($tecnics as $tec): ?>
                                     <option value="<?php echo $tec["idTecnic"]; ?>"

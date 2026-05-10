@@ -13,7 +13,7 @@ $departaments = $mysqli->query("
                 <div class="fs-1">Registrar incidencia</div>
             </div>
             <div class="col-2">
-                <div class="fs-6 pt-3">GRUP4: Ramses i Jordi</div>
+                <a href="index.php" class="badge bg-secondary px-3 py-2">GRUP 4: Ramses i Jordi</a>
             </div>
         </div>
     </div>
@@ -49,8 +49,8 @@ $departaments = $mysqli->query("
                     <?php } ?>
                 </select> 
 
-                <label for="data">Data:</label> <br>
-                <input class="mb-3 form-control" name="Data" id="data" type="date"><br>
+                <label for="data">Titol:</label> <br>
+                <input class="mb-3 form-control" name="Titol" id="data" type="Text" maxlength="50"><br>
 
                 <label for="descripcio">Descripció:</label><br>
                 <textarea class="form-control" name="Descripcio" id="descripcio" rows="2"></textarea><br>

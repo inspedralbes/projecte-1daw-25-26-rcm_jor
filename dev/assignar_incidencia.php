@@ -9,7 +9,7 @@ $prioritat = $_POST["prioritat"];
 $tecnic = $_POST["tecnic"];
 $tipus = $_POST["tipus"];
 
-$stmt = $mysqli->prepare("UPDATE INCIDENCIA SET prioritat = ?, tecnic = ?, tipo = ? WHERE idIncidencia = ?");
+$stmt = $mysqli->prepare("UPDATE INCIDENCIA SET prioritat = ?, tecnic = ?, tipo = ?,estat = 'Procesada' WHERE idIncidencia = ?");
 $stmt->bind_param("siii", $prioritat, $tecnic,$tipus,$id);
 $stmt->execute();
 

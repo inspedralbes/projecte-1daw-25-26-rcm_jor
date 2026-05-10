@@ -23,6 +23,7 @@ CREATE TABLE INCIDENCIA(
     tipo INT(11),
     dataFinalitzacio DATE,
     prioritat ENUM('Alta','Mitja','Baixa'),
+    estat ENUM('Registrada', 'Procesada', 'Resolta') DEFAULT 'Registrada',
     FOREIGN KEY(departament) REFERENCES DEPARTAMENT(idDepartament),
     FOREIGN KEY(tecnic) REFERENCES TECNIC(idTecnic),
     FOREIGN KEY(tipo) REFERENCES TIPO(idTipo)

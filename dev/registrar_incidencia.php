@@ -3,12 +3,12 @@ $mysqli = include_once "connexio.php";
 
 // Recoger datos
 $departament = $_POST['Departament'];
-$data = $_POST['Data'];
+$nom = $_POST['Titol'];
 $descripcio = $_POST['Descripcio'];
 
 // Preparar consulta
-$stmt = $mysqli->prepare("INSERT INTO INCIDENCIA (departament, data, descripcio) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $departament, $data, $descripcio);
+$stmt = $mysqli->prepare("INSERT INTO INCIDENCIA (departament, nom, descripcio) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $departament, $nom, $descripcio);
 
 // Ejecutar
 $stmt->execute();

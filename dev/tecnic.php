@@ -42,7 +42,7 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                 <div class="fs-1">Gestió d'Incidències</div>
             </div>
             <div class="col-2">
-                <div class="fs-6">GRUP 4: Ramses i Jordi</div>
+                <a href="index.php" class="badge bg-secondary px-3 py-2">GRUP 4: Ramses i Jordi</a>
             </div>
         </div>
     </div>
