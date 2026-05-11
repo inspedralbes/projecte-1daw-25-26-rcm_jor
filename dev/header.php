@@ -8,4 +8,4 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/slate/bootstrap.min.css">
 </head>
 
-<body class="bg-dark">
+<body class="bg-dark d-flex flex-column min-vh-100">
