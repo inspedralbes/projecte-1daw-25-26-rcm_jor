@@ -95,7 +95,7 @@ $actuacions = $resultAct->fetch_all(MYSQLI_ASSOC);
                             <h5>Estat</h5>
 
                             <span class="badge bg-primary fs-6">
-                                <?php echo htmlspecialchars($incidencia["estat"]); ?>
+                               <?= htmlspecialchars($incidencia["estat"]?? "Sense gestionar"); ?>
                             </span>
                         </div>
 
@@ -112,7 +112,7 @@ $actuacions = $resultAct->fetch_all(MYSQLI_ASSOC);
                             ?>
 
                             <span class="badge bg-<?php echo $color; ?> fs-6">
-                                <?php echo htmlspecialchars($incidencia["prioritat"]); ?>
+                                <?php echo htmlspecialchars($incidencia["prioritat"] ?? "Sense gestionar"); ?>
                             </span>
                         </div>
 
@@ -120,13 +120,13 @@ $actuacions = $resultAct->fetch_all(MYSQLI_ASSOC);
                             <h5>Tipus</h5>
 
                             <p>
-                                <?php echo htmlspecialchars($incidencia["tipus"]); ?>
+                                <?php echo htmlspecialchars($incidencia["tipus"] ?? "Sense gestionar"); ?>
                             </p>
                         </div>
 
                         <div class="col-md-3">
                             <h5>Tècnic</h5>
-                            <p><?php echo htmlspecialchars($incidencia["tecnic"]); ?></p>
+                            <p><?php echo htmlspecialchars($incidencia["tecnic"] ?? "Sense gestionar"); ?></p>
                         </div>
 
                     </div>
