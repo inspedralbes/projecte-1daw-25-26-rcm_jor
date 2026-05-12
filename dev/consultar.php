@@ -83,13 +83,12 @@ $actuacions = $stmt2->get_result();
             Incidència no trobada.
         </div>
     <?php } ?>
-
-    <div class="mt-4 px-2">
     </div>
-    <a href="index.php" class="btn btn-danger">
-        Tornar
-    </a>
-
+    <div class="mt-4 px-2 w-50">
+        <a href="index.php" class="btn btn-danger">
+            Tornar
+        </a>
+    </div>
 </main>
 
 <?php

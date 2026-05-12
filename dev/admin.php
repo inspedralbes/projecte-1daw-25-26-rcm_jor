@@ -27,6 +27,7 @@ $tecnics = $return2->fetch_all(MYSQLI_ASSOC);
 $tipus = $return3->fetch_all(MYSQLI_ASSOC);
 ?>
 
+
 <header>
     <div class="container-fluid bg-black bg-gradient text-white p-2 shadow text-center">
         <div class="row align-items-center">

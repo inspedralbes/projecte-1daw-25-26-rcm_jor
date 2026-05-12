@@ -1,17 +1,39 @@
-
 services:
 
   web:
-    build: .
+    build:
+      context: .
     container_name: php_apache
     ports:
       - "8080:80"
     volumes:
       - ../dev:/var/www/html
     depends_on:
+      - mongo
       - db
+
+  mongo:
+    image: mongo:6
+    container_name: mongo_db
+    restart: always
+    ports:
+      - "27017:27017"
     environment:
-      - APACHE_DOCUMENT_ROOT=/var/www/html
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongodb_data:/data/db
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo_express
+    restart: always
+    ports:
+      - "8082:8081"
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+    depends_on:
+      - mongo
 
   db:
     image: mysql:8.0
@@ -36,9 +58,10 @@ services:
       - "8081:80"
     environment:
       PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: rootpassword
     depends_on:
       - db
 
 volumes:
+  mongodb_data:
   db_data:
