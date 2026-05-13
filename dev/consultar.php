@@ -2,6 +2,9 @@
 $mysqli = include_once "connexio.php";
 $id = $_POST["id"] ?? $_GET["id"] ?? null;
 
+include_once "log.php";
+registrarAcceso("consultar.php");
+
 $stmt = $mysqli->prepare("
 SELECT 
     i.idIncidencia,
@@ -227,6 +230,10 @@ $actuacions = $resultAct->fetch_all(MYSQLI_ASSOC);
 
     </div>
 </div>
-
+<div class="mt-auto mb-5 px-2">
+    <a href="crear.php" class="btn btn-danger">
+        Tornar
+    </a>
+</div>
 <?php include_once "footer.php";
 ?>

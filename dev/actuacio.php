@@ -2,6 +2,8 @@
 $idIncidencia = $_GET["id"];
 $mysqli = include_once "connexio.php";
 
+include_once "log.php";
+registrarAcceso("actuació.php");
 
 ?>
 <header>

@@ -2,6 +2,9 @@
 $mysqli = include_once "connexio.php";
 $id = $_POST["id"];
 
+include_once "log.php";
+registrarAcceso("afegir_actuacio.php");
+
 $stmt = $mysqli->prepare("
 SELECT 
     i.idIncidencia,

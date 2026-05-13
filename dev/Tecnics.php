@@ -6,7 +6,11 @@ $return = $mysqli->query("SELECT
     nom
 FROM TECNIC");
 
-$tecnics = $return->fetch_all(MYSQLI_ASSOC); ?>
+$tecnics = $return->fetch_all(MYSQLI_ASSOC); 
+
+include_once "log.php";
+registrarAcceso("tecnics.php");
+?>
 
 <header>
     <div class="container-fluid bg-black bg-gradient text-white p-2 mb-5 shadow text-center">

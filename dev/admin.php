@@ -1,6 +1,9 @@
 <?php include_once "header.php";
 $mysqli = include_once "connexio.php";
 
+include_once "log.php";
+registrarAcceso("admin.php");
+
 $return = $mysqli->query("SELECT 
     i.nom AS titol,
     i.estat,
@@ -122,7 +125,9 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
         </table>
     </div>
 </div>
-<div class="mx-2 mb-5">
+<div class="mx-2 mb-5 mt-auto px-2">
         <a href="index.php" class="btn btn-danger">Tornar</a>
+        <a href="consum.php" class="btn btn-info">Consum per departaments</a>
+        <a href="stats.php" class="btn btn-info">Estadístiques d'Accés</a>
     </div>
 <?php include_once "footer.php"; ?>
