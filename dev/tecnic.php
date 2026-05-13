@@ -6,6 +6,7 @@ $id = $_GET['id'];
 
 $stmt = $mysqli->prepare("SELECT 
     i.idIncidencia,
+    i.nom,
     i.descripcio,
     DATE_FORMAT(i.data, '%d/%m/%Y') AS data_formatejada,
     i.prioritat,
@@ -56,7 +57,7 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Descripció</th>
+                    <th>Titol</th>
                     <th>Departament</th>
                     <th>Tipus</th>
                     <th>Data</th>
@@ -75,15 +76,15 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                     };
                     ?>
                     <tr class="<?php echo $clase ?>">
-                        <form action="actuacio.php" method="POST">
+                        <form action="afegir_actuacio.php" method="POST">
 
                             <td>
                                 <strong><?php echo $incidencia["idIncidencia"]; ?></strong>
-                                <input type="hidden" name="idIncidencia" value="<?php echo $incidencia["idIncidencia"]; ?>">
+                                <input type="hidden" name="id" value="<?php echo $incidencia["idIncidencia"]; ?>">
                             </td>
 
                             <td class="text-center">
-                                <?php echo $incidencia["descripcio"]; ?>
+                                <?php echo $incidencia["nom"]; ?>
                             </td>
 
                             <td>
@@ -107,12 +108,12 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                             </td>
 
                             <td>
-                                 <?php echo $incidencia["prioritat"]; ?>
+                                <?php echo $incidencia["prioritat"]; ?>
                             </td>
 
                             <td>
                                 <button type="submit" class="btn btn-danger btn-sm w-100">
-                                    Fer actuació
+                                    Veure Informacio
                                 </button>
                             </td>
 

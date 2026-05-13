@@ -29,7 +29,7 @@ $departaments = $mysqli->query("
             <fieldset class="border border-secondary rounded-2 p-3 w-100 mt-4">
                 <legend>Consulta incidencia:</legend>
                 <label for="id">Introdueix el codi d'incidencia:</label> <br>
-                <input class="mb-3 form-control" name="Consultar" id="id" type="number"><br>
+                <input class="mb-3 form-control" name="id" id="id" type="number"><br>
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </fieldset>
         </form>
