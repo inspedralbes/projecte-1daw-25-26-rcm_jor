@@ -14,7 +14,6 @@ SELECT
     
     i.prioritat,
     i.estat,
-    
     d.nom AS departament,
     t.nom AS tecnic,
     tp.nom AS tipus

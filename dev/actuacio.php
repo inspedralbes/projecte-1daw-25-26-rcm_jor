@@ -27,10 +27,10 @@ $mysqli = include_once "connexio.php";
 
                     <h5>Descripció</h5>
                     <textarea class="form-control" name="descripcio" placeholder="Afegeix una descripció..."
-                        rows="3"></textarea>
+                        rows="3" required></textarea>
 
                     <h5 class="mt-4">Temps dedicat:</h5>
-                    <input type="number" class="form-control mt-3 w-50" name="temps">
+                    <input type="number" class="form-control mt-3 w-50" name="temps" required>
 
                     <h5 class="mt-4">Visible per l'usuari:</h5>
 
@@ -45,11 +45,11 @@ $mysqli = include_once "connexio.php";
                     <div class="row">
                         <div class="col-5 mt-4 d-flex gap-4">
 
-                            <button type="submit" class="btn btn-outline-success">
+                            <button type="submit" class="btn btn-outline-success" name="accio" value="registrar">
                                 Registrar
                             </button>
 
-                            <button type="submit" class="btn btn-outline-danger">
+                            <button type="submit" class="btn btn-outline-danger" name="accio" value="tancar">
                                 Tancar
                             </button>
 

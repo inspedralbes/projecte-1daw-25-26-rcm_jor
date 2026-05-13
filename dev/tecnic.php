@@ -33,7 +33,15 @@ $return3 = $mysqli->query("SELECT idTipo, nom FROM TIPO");
 
 $tecnics = $return2->fetch_all(MYSQLI_ASSOC);
 $tipus = $return3->fetch_all(MYSQLI_ASSOC);
+
+$stmt2 = $mysqli->query("SELECT COUNT(*) AS TOTAL FROM INCIDENCIA WHERE tecnic = $id AND estat = 'Resolta'");
+$total_tancades = $stmt2->fetch_assoc();
+
+$stmt3 = $mysqli->query("SELECT COUNT(*) AS TOTAL FROM INCIDENCIA WHERE tecnic = $id AND estat = 'Procesada'");
+$total_procesadas = $stmt3->fetch_assoc();
+
 ?>
+
 
 <header>
     <div class="container-fluid bg-dark text-white p-2 mb-2 shadow-lg text-center">
@@ -43,13 +51,34 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
                 <div class="fs-1">Gestió d'Incidències</div>
             </div>
             <div class="col-2">
-                <a href="index.php" class="badge bg-secondary px-3 py-2 shadow bg-gradient"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
-</svg></a>
+                <a href="index.php" class="badge bg-secondary px-3 py-2 shadow bg-gradient"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-house" viewBox="0 0 16 16">
+                        <path
+                            d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+                    </svg></a>
             </div>
         </div>
     </div>
 </header>
+<div class="row mb-4 mt-4">
+    <div class="col-12 text-center">
+        <h3>Estadístiques</h3>
+    </div>
+</div>
+
+<div class="row justify-content-center gap-4 mb-2">
+    <div class="col-5 border rounded shadow p-3 my-incidencia" id="pepe">
+        <h3 class="text-center">Incidències en procés</h3>
+        <h4 class="text-center text-warning"><?php echo $total_procesadas["TOTAL"]; ?></h4>
+
+    </div>
+    <div class="col-5 border rounded shadow p-3 my-incidencia"">
+        <h3 class="text-center">Incidències resoltes</h3>
+        <h4 class="text-center text-success"><?php echo $total_tancades["TOTAL"]; ?></h4>
+
+    </div>
+</div>
 
 <div class="row justify-content-center">
     <div class="col-11 my-2">
