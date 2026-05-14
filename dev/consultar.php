@@ -1,4 +1,6 @@
-<?php include_once "header.php";
+<?php 
+$titulo = "Consultar incidència";
+include_once "header.php";
 $mysqli = include_once "connexio.php";
 $id = $_POST["id"] ?? $_GET["id"] ?? null;
 
@@ -59,19 +61,7 @@ $resultAct = $stmtAct->get_result();
 
 $actuacions = $resultAct->fetch_all(MYSQLI_ASSOC);
 ?>
-<header>
-    <div class="container-fluid bg-black bg-gradient text-white p-2 mb-5 shadow text-center">
-        <div class="row align-items-center">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <h1 class="display-5 fw-bold mb-2">Informacio de l'incidència</h1>
-            </div>
-            <div class="col-md-2">
-                <a href="index.php" class="badge bg-secondary px-3 py-2">GRUP 4: Ramses i Jordi</a>
-            </div>
-        </div>
-    </div>
-</header>
+
 <div class="row m-4 justify-content-center">
     <div class="col-5">
         <form action="" method="POST" class="form-group">

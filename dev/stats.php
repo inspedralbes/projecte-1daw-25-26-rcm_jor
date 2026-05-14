@@ -1,4 +1,5 @@
 <?php
+$titulo = "Estadístiques d'accés";
 include_once "header.php";
 require __DIR__ . '/vendor/autoload.php';
 
