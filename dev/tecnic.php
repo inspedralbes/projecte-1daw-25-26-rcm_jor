@@ -67,13 +67,13 @@ $total_procesadas = $stmt3->fetch_assoc();
 </div>
 
 <div class="row justify-content-center gap-4 mb-2">
-    <div class="col-5 border rounded shadow p-3 my-incidencia" id="pepe">
+    <div class="col-5 border rounded shadow p-3 w-25" id="pepe">
         <h3 class="text-center">Incidències en procés</h3>
         <h4 class="text-center text-warning"><?php echo $total_procesadas["TOTAL"]; ?></h4>
 
     </div>
-    <div class="col-5 border rounded shadow p-3 my-incidencia"">
-        <h3 class="text-center">Incidències resoltes</h3>
+    <div class="col-5 border rounded shadow p-3 w-25">
+        <h3 class=" text-center">Incidències resoltes</h3>
         <h4 class="text-center text-success"><?php echo $total_tancades["TOTAL"]; ?></h4>
 
     </div>
@@ -106,47 +106,47 @@ $total_procesadas = $stmt3->fetch_assoc();
                     <tr class="<?php echo $clase ?>">
                         <form action="afegir_actuacio.php" method="POST">
 
-                            <td>
-                                <strong><?php echo $incidencia["idIncidencia"]; ?></strong>
-                                <input type="hidden" name="id" value="<?php echo $incidencia["idIncidencia"]; ?>">
-                            </td>
+                        <td>
+                            <strong><?php echo $incidencia["idIncidencia"]; ?></strong>
+                            <input type="hidden" name="id" value="<?php echo $incidencia["idIncidencia"]; ?>">
+                        </td>
 
-                            <td class="text-center">
-                                <?php echo $incidencia["nom"]; ?>
-                            </td>
+                        <td class="text-center">
+                            <?php echo $incidencia["nom"]; ?>
+                        </td>
 
-                            <td>
-                                <span class="badge bg-secondary">
-                                    <?php echo $incidencia["departament"]; ?>
-                                </span>
-                            </td>
+                        <td>
+                            <span class="badge bg-secondary">
+                                <?php echo $incidencia["departament"]; ?>
+                            </span>
+                        </td>
 
-                            <td>
-                                <?php
+                        <td>
+                            <?php
                                 foreach ($tipus as $t) {
                                     if ($incidencia["id_tipo_actual"] == $t["idTipo"]) {
                                         echo $t["nom"];
                                     }
                                 }
                                 ?>
-                            </td>
+                        </td>
 
-                            <td style="white-space: nowrap;">
-                                <?php echo $incidencia["data_formatejada"]; ?>
-                            </td>
+                        <td style="white-space: nowrap;">
+                            <?php echo $incidencia["data_formatejada"]; ?>
+                        </td>
 
-                            <td>
-                                <?php echo $incidencia["prioritat"]; ?>
-                            </td>
+                        <td>
+                            <?php echo $incidencia["prioritat"]; ?>
+                        </td>
 
-                            <td>
-                                <button type="submit" class="btn btn-danger btn-sm w-100">
-                                    Veure Informacio
-                                </button>
-                            </td>
+                        <td>
+                            <button type="submit" class="btn btn-danger btn-sm w-100">
+                                Veure Informacio
+                            </button>
+                        </td>
 
-                        </form>
-                    </tr>
+                    </form>
+                </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>

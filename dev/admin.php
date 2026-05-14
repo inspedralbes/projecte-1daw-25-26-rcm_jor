@@ -28,6 +28,15 @@ $return3 = $mysqli->query("SELECT idTipo, nom FROM TIPO");
 $incidencias = $return->fetch_all(MYSQLI_ASSOC);
 $tecnics = $return2->fetch_all(MYSQLI_ASSOC);
 $tipus = $return3->fetch_all(MYSQLI_ASSOC);
+
+$stmt2 = $mysqli->query("SELECT COUNT(*) AS TOTAL FROM INCIDENCIA WHERE estat = 'Resolta'");
+$total_tancades = $stmt2->fetch_assoc();
+
+$stmt3 = $mysqli->query("SELECT COUNT(*) AS TOTAL FROM INCIDENCIA WHERE estat = 'Procesada'");
+$total_procesadas = $stmt3->fetch_assoc();
+
+$stmt4 = $mysqli->query("SELECT COUNT(*) AS TOTAL FROM INCIDENCIA WHERE estat = 'Registrada'");
+$total_registrades = $stmt4->fetch_assoc();
 ?>
 
 
@@ -46,6 +55,30 @@ $tipus = $return3->fetch_all(MYSQLI_ASSOC);
         </div>
     </div>
 </header>
+
+<div class="row mb-4 mt-4">
+    <div class="col-12 text-center">
+        <h2>Estadístiques Generals</h2>
+    </div>
+</div>
+
+<div class="row justify-content-center gap-2 mb-2">
+    <div class="col-3 border rounded shadow p-3 my-incidencia" id="pepe">
+        <h3 class="text-center">Incidències Registrades</h3>
+        <h4 class="text-center text-info"><?php echo $total_registrades["TOTAL"]; ?></h4>
+
+    </div>
+    <div class="col-3 border rounded shadow p-3 my-incidencia">
+        <h3 class=" text-center">Incidències Procesades</h3>
+        <h4 class="text-center text-warning"><?php echo $total_procesadas["TOTAL"]; ?></h4>
+
+    </div>
+    <div class="col-3 border rounded shadow p-3 my-incidencia">
+        <h3 class=" text-center">Incidències resoltes</h3>
+        <h4 class="text-center text-success"><?php echo $total_tancades["TOTAL"]; ?></h4>
+
+    </div>
+</div>
 
 <div class="row justify-content-center">
     <div class="col-11 my-2">
