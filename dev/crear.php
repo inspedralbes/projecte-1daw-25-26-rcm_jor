@@ -65,8 +65,8 @@ $collection->insertOne([
                     <?php } ?>
                 </select>
 
-                <label for="data">Titol:</label> <br>
-                <input class="mb-3 form-control" name="Titol" id="data" type="Text" maxlength="50"><br>
+                <label class="mt-3" for="data">Titol:</label> <br>
+                <input class="form-control" name="Titol" id="data" type="Text" maxlength="50"><br>
 
                 <label for="descripcio">Descripció:</label><br>
                 <textarea class="form-control" name="Descripcio" id="descripcio" rows="2"></textarea><br>
@@ -78,6 +78,27 @@ $collection->insertOne([
         <a href="index.php" class="btn btn-danger">Tornar</a>
     </div>
 </main>
+
+<script>
+document.querySelectorAll('form').forEach(form => {
+    form.onsubmit = function(e) {
+        const camps = form.querySelectorAll('input, select, textarea');
+        let buit = false;
+
+        camps.forEach(camp => {
+            if (camp.value.trim() === "") {
+                buit = true;
+            }
+        });
+
+        if (buit) {
+            e.preventDefault(); 
+            alert("Error: Has d'omplir tots els camps"); 
+        }
+    };
+});
+</script>
+
 <?php include_once "footer.php"; ?>
 </body>
 

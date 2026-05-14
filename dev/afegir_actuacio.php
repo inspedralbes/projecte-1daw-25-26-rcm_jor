@@ -2,9 +2,6 @@
 $mysqli = include_once "connexio.php";
 $id = $_POST["id"];
 
-include_once "log.php";
-registrarAcceso("afegir_actuacio.php");
-
 $stmt = $mysqli->prepare("
 SELECT 
     i.idIncidencia,
@@ -166,6 +163,10 @@ $incidencia = $result->fetch_assoc();
         </form>
     </div>
 </div>
-
+<div class="mt-auto mb-5 px-2">
+    <a href="index.php" class="btn btn-danger">
+        Tornar
+    </a>
+</div>
 <?php include_once "footer.php";
 ?>
