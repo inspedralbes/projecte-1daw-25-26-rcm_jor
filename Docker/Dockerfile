@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-# herramientas básicas
+# Herramientas básicas y extensión de MongoDB
 RUN apt-get update && apt-get install -y \
     unzip \
     git \
@@ -9,8 +9,11 @@ RUN apt-get update && apt-get install -y \
     && pecl install mongodb \
     && docker-php-ext-enable mongodb
 
-# habilitar mod rewrite (opcional pero útil)
+# INSTALAR MYSQLI (Añade esta línea)
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+
+# Habilitar mod rewrite
 RUN a2enmod rewrite
 
-# instalar composer
+# Instalar composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

@@ -1,7 +1,6 @@
 <?php
 include_once "header.php";
-include_once "connexio.php";
-
+$mysqli = include_once "connexio.php";
 $id = $_GET['id'];
 
 $stmt = $mysqli->prepare("SELECT 
@@ -103,7 +102,7 @@ $total_procesadas = $stmt3->fetch_assoc();
                         'Baixa' => 'table-info',
                         default => 'table-light',
                     };
-                    ?>
+                ?>
                     <tr class="<?php echo $clase ?>">
                         <form action="afegir_actuacio.php" method="POST">
 
@@ -152,6 +151,11 @@ $total_procesadas = $stmt3->fetch_assoc();
             </tbody>
         </table>
     </div>
+</div>
+<div class="mt-auto mb-5 px-2">
+    <a href="index.php" class="btn btn-danger">
+        Tornar
+    </a>
 </div>
 
 <?php include_once "footer.php"; ?>

@@ -1,10 +1,23 @@
 <?php include("header.php");
 $mysqli = include_once "connexio.php";
 
+include_once "log.php";
+registrarAcceso("crear.php");
+
 $departaments = $mysqli->query("
     SELECT idDepartament, nom 
     FROM DEPARTAMENT
 ")->fetch_all(MYSQLI_ASSOC);
+
+require 'vendor/autoload.php';
+$client = new MongoDB\Client("mongodb://root:example@mongo:27017");
+$collection = $client->analytics->access_logs;
+
+$collection->insertOne([
+    "page" => $_SERVER['REQUEST_URI'],
+    "user" => "admin",
+    "date" => date("Y-m-d H:i:s")
+]);
 ?>
 <header>
     <div class="container-fluid bg-black bg-gradient text-white mb-1 p-2 shadow text-center">
@@ -30,7 +43,7 @@ $departaments = $mysqli->query("
                 <legend>Consulta incidencia:</legend>
                 <label for="id">Introdueix el codi d'incidencia:</label> <br>
                 <input class="mb-3 form-control" name="id" id="id" type="number"><br>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-outline-success">Consultar</button>
             </fieldset>
         </form>
     </div>
@@ -52,12 +65,12 @@ $departaments = $mysqli->query("
                     <?php } ?>
                 </select>
 
-                <label for="data">Titol:</label> <br>
-                <input class="mb-3 form-control" name="Titol" id="data" type="Text" maxlength="50"><br>
+                <label class="mt-3" for="data">Titol:</label> <br>
+                <input class="form-control" name="Titol" id="data" type="Text" maxlength="50"><br>
 
                 <label for="descripcio">Descripció:</label><br>
                 <textarea class="form-control" name="Descripcio" id="descripcio" rows="2"></textarea><br>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-outline-success">Registrar</button>
             </fieldset>
         </form>
     </div>
@@ -65,6 +78,27 @@ $departaments = $mysqli->query("
         <a href="index.php" class="btn btn-danger">Tornar</a>
     </div>
 </main>
+
+<script>
+document.querySelectorAll('form').forEach(form => {
+    form.onsubmit = function(e) {
+        const camps = form.querySelectorAll('input, select, textarea');
+        let buit = false;
+
+        camps.forEach(camp => {
+            if (camp.value.trim() === "") {
+                buit = true;
+            }
+        });
+
+        if (buit) {
+            e.preventDefault(); 
+            alert("Error: Has d'omplir tots els camps"); 
+        }
+    };
+});
+</script>
+
 <?php include_once "footer.php"; ?>
 </body>
 
