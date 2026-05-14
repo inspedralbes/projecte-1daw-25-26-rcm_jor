@@ -1,4 +1,6 @@
-<?php include_once "header.php";
+<?php 
+$titulo = "Registrar actuació";
+include_once "header.php";
 $idIncidencia = $_GET["id"];
 $mysqli = include_once "connexio.php";
 
