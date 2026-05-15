@@ -1,4 +1,4 @@
-<?php 
+<?php
 $titulo = "Registrar actuació";
 include_once "header.php";
 $idIncidencia = $_GET["id"];
@@ -34,7 +34,14 @@ registrarAcceso("actuació.php");
                         rows="3" required></textarea>
 
                     <h5 class="mt-4">Temps dedicat:</h5>
-                    <input type="number" class="form-control mt-3 w-50" name="temps" required>
+                    <select class="form-control mt-3 w-50" name="temps" required>
+                        <option value="" disabled selected>Selecciona el temps...</option>
+                        <option value="5">5 minuts</option>
+                        <option value="15">15 minuts</option>
+                        <option value="30">30 minuts</option>
+                        <option value="60">60 minuts</option>
+                        <option value="100">+60 minuts</option>
+                    </select>
 
                     <h5 class="mt-4">Visible per l'usuari:</h5>
 

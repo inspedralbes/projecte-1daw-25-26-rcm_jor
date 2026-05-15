@@ -14,9 +14,10 @@ include_once "log.php";
 registrarAcceso("tecnics.php");
 ?>
 
-<div class="text-center m-5 fw-bold text-primary">
-    <h1 class="fs-2">Selecciona el tecnic:</h1>
+<div class="text-center m-5 text-dark">
+    <h1>Selecciona el tecnic:</h1>
 </div>
+
 
 <div class="d-flex justify-content-center">
     <div class="d-grid gap-3" style="width: 400px;">
@@ -24,7 +25,7 @@ registrarAcceso("tecnics.php");
         foreach ($tecnics as $tecnic) {
             $id = $tecnic["idTecnic"];
 
-            echo "<a class='btn btn-primary mb-2 w-100' href='tecnic.php?id=$id'>"
+            echo "<a class='btn btn-warning mb-2 w-100' href='informe_tecnics.php?id=$id'>"
                 . $tecnic["nom"] .
                 "</a>";
         }
@@ -33,7 +34,7 @@ registrarAcceso("tecnics.php");
     </div>
 </div>
 <div class="mt-auto mb-5 px-2">
-    <a href="index.php" class="btn btn-danger">
+    <a href="admin.php" class="btn btn-danger">
         Tornar
     </a>
 </div>

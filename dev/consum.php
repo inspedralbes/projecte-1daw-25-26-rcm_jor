@@ -14,8 +14,8 @@ $dades = $resultat->fetch_all(MYSQLI_ASSOC);
 
 <main class="container mt-5">
 
-    <table class="table table-bordered table-striped">
-        <div class="table-dark">
+    <table class="table table-light table-bordered table-striped">
+        <div class="table-secondary">
             <tr>
                 <th>Departament</th>
                 <th>Incidències Reportades</th>

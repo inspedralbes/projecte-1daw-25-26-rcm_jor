@@ -65,7 +65,7 @@ $actuacions = $resultAct->fetch_all(MYSQLI_ASSOC);
 <div class="row m-4 justify-content-center">
     <div class="col-5">
         <form action="" method="POST" class="form-group">
-            <div class="card shadow-lg border-0 rounded-4">
+            <div class="card shadow-lg border-1 rounded-4">
 
                 <div class="card-header bg-dark text-white">
                     <h2 class="mb-0">

@@ -103,7 +103,7 @@ $incidencia = $result->fetch_assoc();
 
                     <h4>Descripció</h4>
 
-                    <div class="border rounded p-3 bg-light">
+                    <div class="border rounded text-dark p-3 bg-light">
 
                         <?php echo htmlspecialchars($incidencia["descripcio"]); ?>
 
@@ -115,7 +115,7 @@ $incidencia = $result->fetch_assoc();
 
                         <h5>Data inici</h5>
 
-                        <div class="border rounded p-2 bg-light">
+                        <div class="border rounded text-dark  p-2 bg-light">
                             <?php echo htmlspecialchars($incidencia["data_inici"]); ?>
                         </div>
 
@@ -125,7 +125,7 @@ $incidencia = $result->fetch_assoc();
 
                         <h5>Data finalització</h5>
 
-                        <div class="border rounded p-2 bg-light">
+                        <div class="border rounded text-dark p-2 bg-light">
 
                             <?php
                             if ($incidencia["data_final"] != null) {
@@ -154,7 +154,7 @@ $incidencia = $result->fetch_assoc();
     </div>
 </div>
 <div class="mt-auto mb-5 px-2">
-    <a href="index.php" class="btn btn-danger">
+    <a href="Tecnics.php" class="btn btn-danger">
         Tornar
     </a>
 </div>

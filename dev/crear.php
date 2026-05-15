@@ -10,27 +10,17 @@ $departaments = $mysqli->query("
     SELECT idDepartament, nom 
     FROM DEPARTAMENT
 ")->fetch_all(MYSQLI_ASSOC);
-
-require 'vendor/autoload.php';
-$client = new MongoDB\Client("mongodb://root:example@mongo:27017");
-$collection = $client->analytics->access_logs;
-
-$collection->insertOne([
-    "page" => $_SERVER['REQUEST_URI'],
-    "user" => "admin",
-    "date" => date("Y-m-d H:i:s")
-]);
 ?>
 
-<main class="text-white">
+<main class="text-dark">
 
-    <div class="d-flex justify-content-center" style="height: 400px;">
+    <div class="d-flex justify-content-center">
         <form action="registrar_incidencia.php" method="POST" style="width: 100%; max-width: 600px;">
-            <fieldset class="border border-secondary rounded-2 p-3 w-100 mt-4">
+            <fieldset class="border border-secondary rounded-2 p-3 mt-4 shadow-lg">
                 <legend>Registrar nova incidencia</legend>
 
                 <label for="departament">Departament:</label>
-                <select class="form-select" name="Departament" id="departament">
+                <select class="form-select border-secondary" name="Departament" id="departament">
                     <option value="">Posa el teu departament</option>
 
                     <?php foreach ($departaments as $dep) { ?>
@@ -40,18 +30,18 @@ $collection->insertOne([
                     <?php } ?>
                 </select>
 
-                <label class="mt-3" for="data">Titol:</label> <br>
-                <input class="form-control" name="Titol" id="data" type="Text" maxlength="50"><br>
+                <label class="mt-4" for="data">Titol:</label> <br>
+                <input class="form-control border-secondary" name="Titol" id="data" type="Text" maxlength="50"><br>
 
-                <label for="descripcio">Descripció:</label><br>
-                <textarea class="form-control" name="Descripcio" id="descripcio" rows="2"></textarea><br>
-                <button type="submit" class="btn btn-outline-success">Registrar</button>
+                <label class="mt-2" for="descripcio">Descripció:</label><br>
+                <textarea class="form-control border-secondary" name="Descripcio" id="descripcio" rows="2"></textarea><br>
+                <button type="submit" class="btn btn-success"name="registrar">Registrar</button>
             </fieldset>
         </form>
     </div>
 </main>
   <div class="mt-auto mb-5 px-2">
-        <a href="index.php" class="btn btn-danger">
+        <a href="index.php" class="btn btn-danger"name="tornar">
             Tornar
         </a>
     </div>

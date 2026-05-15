@@ -1,13 +1,10 @@
 <?php 
 $titulo = "Gestió d'incidències";
 include_once "header.php"; ?>
-
-<main class="container px-4 d-flex pb-5 flex-column justify-content-center align-items-center" style="min-height: 70vh;">
-    <div class="row justify-content-center g-4 w-100">
-
+    <div class="row justify-content-center g-4 w-100 mt-5">
 <!-- PROFESOR -->
         <div class="col-12 col-md-4 col-xl-3">
-            <div class="card h-100 border-0 shadow text-center p-3">
+            <div class="card h-100 border-1 shadow text-center p-3">
                 <div class="card-body d-flex flex-column">
                     <div class="rounded-circle bg-success bg-opacity-10 text-success p-3 mx-auto mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
@@ -24,7 +21,7 @@ include_once "header.php"; ?>
 
 <!-- TECNIC -->
         <div class="col-12 col-md-4 col-xl-3">
-            <div class="card h-100 border-0 shadow text-center p-3">
+            <div class="card h-100 border-1 shadow text-center p-3">
                 <div class="card-body d-flex flex-column">
                     <div class="rounded-circle bg-warning bg-opacity-10 text-warning p-3 mx-auto mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
@@ -40,7 +37,7 @@ include_once "header.php"; ?>
 
 <!-- ADMIN -->
         <div class="col-12 col-md-4 col-xl-3">
-            <div class="card h-100 border-0 shadow text-center p-3">
+            <div class="card h-100 border-1 shadow text-center p-3">
                 <div class="card-body d-flex flex-column">
                     <div class="rounded-circle bg-info bg-opacity-10 text-info p-3 mx-auto mb-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-database-fill" viewBox="0 0 16 16">

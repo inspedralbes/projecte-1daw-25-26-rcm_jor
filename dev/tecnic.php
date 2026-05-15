@@ -60,13 +60,13 @@ $total_procesadas = $stmt3->fetch_assoc();
             <tbody>
                 <?php foreach ($incidencias as $incidencia):
                     $clase = match ($incidencia["prioritat"]) {
-                        'Alta' => 'table-danger',
-                        'Mitja' => 'table-warning',
-                        'Baixa' => 'table-info',
-                        default => 'table-light',
+                        'Alta' => 'danger',
+                        'Mitja' => 'warning',
+                        'Baixa' => 'info',
+                        default => 'secondary',
                     };
                 ?>
-                    <tr class="<?php echo $clase ?>">
+                    <tr>
                         <form action="afegir_actuacio.php" method="POST">
 
                         <td>
@@ -99,11 +99,13 @@ $total_procesadas = $stmt3->fetch_assoc();
                         </td>
 
                         <td>
-                            <?php echo $incidencia["prioritat"]; ?>
+                            <span class="badge bg-<?php echo $clase; ?> text-white w-75">
+                                <?php echo $incidencia["prioritat"]; ?>
+                            </span>
                         </td>
 
                         <td>
-                            <button type="submit" class="btn btn-danger btn-sm w-100">
+                            <button type="submit" class="btn btn-primary btn-sm w-100">
                                 Veure Informacio
                             </button>
                         </td>
@@ -116,7 +118,7 @@ $total_procesadas = $stmt3->fetch_assoc();
     </div>
 </div>
 <div class="mt-auto mb-5 px-2">
-    <a href="index.php" class="btn btn-danger">
+    <a href="Tecnics.php" class="btn btn-danger">
         Tornar
     </a>
 </div>
