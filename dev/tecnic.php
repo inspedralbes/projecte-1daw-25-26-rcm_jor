@@ -41,7 +41,24 @@ $stmt3 = $mysqli->query("SELECT COUNT(*) AS TOTAL FROM INCIDENCIA WHERE tecnic =
 $total_procesadas = $stmt3->fetch_assoc();
 
 ?>
+<div class="row mb-4 mt-4">
+    <div class="col-12 text-center">
+        <h3>Estadístiques</h3>
+    </div>
+</div>
 
+<div class="row justify-content-center gap-4 mb-2">
+    <div class="col-5 border rounded shadow p-3 w-25" id="pepe">
+        <h3 class="text-center">Incidències en procés</h3>
+        <h4 class="text-center text-warning"><?php echo $total_procesadas["TOTAL"]; ?></h4>
+
+    </div>
+    <div class="col-5 border rounded shadow p-3 w-25">
+        <h3 class=" text-center">Incidències resoltes</h3>
+        <h4 class="text-center text-success"><?php echo $total_tancades["TOTAL"]; ?></h4>
+
+    </div>
+</div>
 <div class="row justify-content-center">
     <div class="col-11 my-2">
         <table class="table table-hover align-middle text-center">
@@ -60,13 +77,13 @@ $total_procesadas = $stmt3->fetch_assoc();
             <tbody>
                 <?php foreach ($incidencias as $incidencia):
                     $clase = match ($incidencia["prioritat"]) {
-                        'Alta' => 'table-danger',
-                        'Mitja' => 'table-warning',
-                        'Baixa' => 'table-info',
-                        default => 'table-light',
+                        'Alta' => 'danger',
+                        'Mitja' => 'warning',
+                        'Baixa' => 'info',
+                        default => 'light',
                     };
                 ?>
-                    <tr class="<?php echo $clase ?>">
+                    <tr>
                         <form action="afegir_actuacio.php" method="POST">
 
                         <td>
@@ -99,7 +116,9 @@ $total_procesadas = $stmt3->fetch_assoc();
                         </td>
 
                         <td>
-                            <?php echo $incidencia["prioritat"]; ?>
+                            <span class="badge bg-<?php echo $clase; ?> text-dark w-75">
+                                <?php echo $incidencia["prioritat"]; ?>
+                            </span>
                         </td>
 
                         <td>

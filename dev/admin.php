@@ -147,5 +147,6 @@ $total_registrades = $stmt4->fetch_assoc();
         <a href="index.php" class="btn btn-danger">Tornar</a>
         <a href="consum.php" class="btn btn-info">Consum per departaments</a>
         <a href="stats.php" class="btn btn-info">Estadístiques d'Accés</a>
+        
     </div>
 <?php include_once "footer.php"; ?>

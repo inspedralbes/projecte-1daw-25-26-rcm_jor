@@ -1,91 +1,100 @@
 <?php 
-$titulo = "Taula de Actuacions";
+$titulo = "Estadístiques del Tècnic";
 include_once "header.php";
 $mysqli = include_once "connexio.php";
 
 include_once "log.php";
-registrarAcceso("actuacions.php");
+registrarAcceso("tecnic.php");
 
-// QUERY: Seleccionamos los datos de la actuación
-$return = $mysqli->query("SELECT 
-                T.nom AS tecnico,
-                I.idIncidencia AS id,
-                I.prioritat,
-                I.estat AS estat,
-                A.temps AS tiempo,
-                A.descripcio AS actuacion,
-                DATE_FORMAT(A.data, '%d/%m/%Y %H:%i') AS fecha
-            FROM INCIDENCIA I
-            JOIN TECNIC T ON I.tecnic = T.idTecnic
-            JOIN ACTUACIO A ON A.incidencia = I.idIncidencia
-            ORDER BY A.data DESC");
+// Obtener ID del técnico
+$idTecnic = $_GET["id"];
 
-$actuaciones = $return->fetch_all(MYSQLI_ASSOC);
+// QUERY preparada
+$stmt = $mysqli->prepare("
+    SELECT 
+        t.idTecnic,
+        t.nom AS tecnico,
+        i.estat,
+        COUNT(i.idIncidencia) AS total_incidencias
+    FROM TECNIC t
+    LEFT JOIN INCIDENCIA i 
+        ON t.idTecnic = i.tecnic
+    WHERE t.idTecnic = ?
+    GROUP BY t.idTecnic, t.nom, i.estat
+    ORDER BY i.estat
+");
+
+$stmt->bind_param("i", $idTecnic);
+
+$stmt->execute();
+
+$result = $stmt->get_result();
+
+$estadistiques = $result->fetch_all(MYSQLI_ASSOC);
+
+// Arrays para Chart.js
+$labels = [];
+$valores = [];
+
+foreach ($estadistiques as $fila) {
+    $labels[] = $fila["estat"] ?? "Sense estat";
+    $valores[] = $fila["total_incidencias"];
+}
+
+// Nombre del técnico
+$nomTecnic = $estadistiques[0]["tecnico"] ?? "Tècnic";
 ?>
 
 <div class="row mb-4 mt-4">
     <div class="col-12 text-center">
-        <h2>Detall de les Actuacions Realitzades</h2>
+        <h2>Estadístiques del tècnic <?php echo $nomTecnic; ?></h2>
         <hr class="w-50 mx-auto">
     </div>
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-11 my-2">
-        <table class="table table-hover align-middle text-center">
-            <thead class="table-dark">
-                <tr>
-                    <th>Tècnic Responsable</th>
-                    <th>ID Incidència</th>
-                    <th>Temps Dedicat</th>
-                    <th>Prioritat</th>
-                    <th>Descripció de l'Actuació</th>
-                    <th>Data i Hora</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($actuaciones as $act): 
-                    // LA LÓGICA DEBE IR AQUÍ DENTRO PARA CADA FILA
-                    $clase = match ($act["prioritat"]) {
-                        'Alta' => 'danger',
-                        'Mitja' => 'warning',
-                        'Baixa' => 'info',
-                        default => 'secondary',
-                    };
-                ?>
-                    <tr>
-                        <td class="fw-bold"><?php echo $act["tecnico"]; ?></td>
-                        <td><span class="badge bg-primary">#<?php echo $act["id"]; ?></span></td>
-                        <td>
-                            <span class="badge bg-light text-dark border px-3">
-                                <?php echo $act["tiempo"]; ?> minuts
-                            </span>
-                        </td>
-                        <td>
-                            <span class="badge bg-<?php echo $clase; ?> text-dark w-75">
-                                <?php echo $act["prioritat"]; ?>
-                            </span>
-                        </td>
-                        <td class="text-center small"><?php echo $act["actuacion"]; ?></td>
-                        <td style="white-space: nowrap;"><?php echo $act["fecha"]; ?></td>
-                    </tr>
-                <?php endforeach; ?>
-
-                <?php if (empty($actuaciones)): ?>
-                    <tr>
-                        <td colspan="6" class="text-center py-4">No s'han trobat actuacions registrades.</td>
-                    </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
+    <div class="col-10 border rounded shadow p-4">
+        <canvas id="graficoIncidencias"></canvas>
     </div>
 </div>
 
 <div class="mx-2 mb-5 mt-4 px-2">
     <a href="index.php" class="btn btn-danger">Tornar</a>
     <a href="admin.php" class="btn btn-warning">Administrar Incidències</a>
-    <a href="consum.php" class="btn btn-info text-white">Consum per departaments</a>
-    <a href="stats.php" class="btn btn-info text-white">Estadístiques d'Accés</a>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Datos desde PHP
+    const labelsEstados = <?php echo json_encode($labels); ?>;
+    const datosIncidencias = <?php echo json_encode($valores); ?>;
+
+    const ctx = document.getElementById('graficoIncidencias').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar', // Gráfico de columnas
+        data: {
+            labels: labelsEstados,
+            datasets: [{
+                label: 'Número d\'Incidències',
+                data: datosIncidencias,
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            resizeDelay: 200,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                }
+            }
+        }
+    });
+</script>
 
 <?php include_once "footer.php"; ?>
