@@ -5,14 +5,17 @@ include_once "header.php"; ?>
 $id = $_GET['id'];
 ?>
 
-<main>
-    <div class="row d-flex justify-content-center container">
-        <div class="col-10 text-center mt-4">
-            <div class="card text-center w-50 mx-auto shadow-lg bg-active p-3">
+<main class="container mt-5 d-flex flex-column align-items-center">
+    
+    <div class="row w-100 justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 text-center">
+            
+            <div class="card text-center w-100 mx-auto shadow-lg bg-active p-3">
                 <div class="card-body">
-                    <h1 class="card-title">INCIDENCIA CREADA</h1>
-                    <p class="card-text m-5">El teu codi d'incidencia es:</p>
-                    <h2 class="fs-1"><?php echo $id; ?></h2>
+                    <h1 class="card-title h2">INCIDENCIA CREADA</h1>
+                    <p class="card-text my-4">El teu codi d'incidencia es:</p>
+                    <h2 class="fs-1 text-primary fw-bold"><?php echo $id; ?></h2>
+                    
                     <div class="mt-4">
                         <a href="crear.php" class="btn btn-primary w-100">Afegir una altra incidència</a>
                     </div>
@@ -22,11 +25,16 @@ $id = $_GET['id'];
                     </div>
                 </div>
             </div>
+
         </div>
-        <div class="mt-auto mb-5 px-2">
-            <a href="index.php" class="btn btn-danger">
-                Tornar
-            </a>
-        </div>
+    </div>
+
+    <div class="mt-4 mb-5 text-center">
+        <a href="index.php" class="btn btn-danger">
+            Tornar
+        </a>
+    </div>
+    
 </main>
+
 <?php include_once "footer.php" ?>

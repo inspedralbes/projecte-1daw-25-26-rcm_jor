@@ -8,19 +8,6 @@ include_once "log.php";
 registrarAcceso("actuació.php");
 
 ?>
-<header>
-    <div class="container-fluid bg-black bg-gradient text-white p-2 mb-5 shadow text-center">
-        <div class="row align-items-center">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <h1 class="display-5 fw-bold mb-2">Registra la teva actuacio</h1>
-            </div>
-            <div class="col-md-2">
-                <a href="index.php" class="badge bg-secondary px-3 py-2">GRUP 4: Ramses i Jordi</a>
-            </div>
-        </div>
-    </div>
-</header>
 <div class="row justify-content-center">
     <div class="col-8 mt-5">
         <h1>Registra actuacio</h1>
@@ -29,11 +16,11 @@ registrarAcceso("actuació.php");
             <div class="card">
                 <div class="card-body p-5">
 
-                    <h5>Descripció</h5>
+                    <h2 class="fs-4">Descripció</h2>
                     <textarea class="form-control" name="descripcio" placeholder="Afegeix una descripció..."
                         rows="3" required></textarea>
 
-                    <h5 class="mt-4">Temps dedicat:</h5>
+                    <h2 class="mt-4">Temps dedicat:</h2>
                     <select class="form-control mt-3 w-50" name="temps" required>
                         <option value="" disabled selected>Selecciona el temps...</option>
                         <option value="5">5 minuts</option>
@@ -43,7 +30,7 @@ registrarAcceso("actuació.php");
                         <option value="100">+60 minuts</option>
                     </select>
 
-                    <h5 class="mt-4">Visible per l'usuari:</h5>
+                    <h2 class="mt-4">Visible per l'usuari:</h2>
 
                     <div class="form-check form-switch mt-2">
                         <input class="form-check-input" type="checkbox" name="visible" value="1" id="visibleUsuari">
@@ -70,5 +57,10 @@ registrarAcceso("actuació.php");
                 </div>
             </div>
         </form>
+<div class="mt-3 mb-5 px-2">
+            <a href="index.php" class="btn btn-danger">
+                Tornar
+            </a>
+        </div>
     </div>
 </div>

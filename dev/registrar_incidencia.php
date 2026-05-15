@@ -8,7 +8,7 @@ $descripcio = $_POST['Descripcio'];
 
 // Preparar consulta
 $stmt = $mysqli->prepare("INSERT INTO INCIDENCIA (departament, nom, descripcio) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $departament, $nom, $descripcio);
+$stmt->bind_param("iss", $departament, $nom, $descripcio);
 
 // Ejecutar
 $stmt->execute();
