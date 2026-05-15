@@ -15,7 +15,7 @@ include_once "header.php"; ?>
                     </div>
                     <h2 class="fs-4 card-title fw-bold text-dark">Professor</h2>
                     <p class="card-text text-muted flex-grow-1 small">Registrar noves incidències.</p>
-                    <a href="crear.php" class="btn btn-success fw-bold text-white w-100 mt-3 shadow-sm">Entrar</a>
+                    <a href="crear.php" class="btn btn-success fw-bold text-black w-100 mt-3 shadow-sm">Entrar</a>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@ include_once "header.php"; ?>
                     </div>
                     <h2 class="fs-4 card-title fw-bold text-dark">Tècnic</h2>
                     <p class="card-text text-muted flex-grow-1 small">Gestionar assignacions.</p>
-                    <a href="Tecnics.php" class="btn btn-warning text-dark fw-bold w-100 mt-3 shadow-sm">Entrar</a>
+                    <a href="Tecnics.php" class="btn btn-warning text-black fw-bold w-100 mt-3 shadow-sm">Entrar</a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@ include_once "header.php"; ?>
                     </div>
                     <h2 class="fs-4 card-title fw-bold text-dark">Administrador</h2>
                     <p class="card-text text-muted flex-grow-1 small">Control total del sistema.</p>
-                    <a href="admin.php" class="btn btn-primary fw-bold w-100 mt-3 text-dark shadow-sm">Entrar</a>
+                    <a href="admin.php" class="btn btn-primary fw-bold w-100 mt-3 text-black shadow-sm">Entrar</a>
                 </div>
             </div>
         </div>

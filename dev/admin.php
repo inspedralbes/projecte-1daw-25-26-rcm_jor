@@ -101,7 +101,7 @@ $total_registrades = $stmt4->fetch_assoc();
 
                                 <td class="text-center"><?php echo $incidencia["estat"] ?></td>
 
-                                <td><span class="text-center badge bg-secondary"><?php echo $incidencia["departament"]; ?></span></td>
+                                <td><span class="text-center badge text-black bg-secondary"><?php echo $incidencia["departament"]; ?></span></td>
 
                                 <td class="text-center">
                                     <select name="tipus" class="form-select form-select-sm w-auto mx-auto" required>
@@ -138,7 +138,7 @@ $total_registrades = $stmt4->fetch_assoc();
                                 </td>
 
                                 <td>
-                                    <button type="submit" class="btn btn-success btn-sm w-100">Assignar</button>
+                                    <button type="submit" class="btn text-black btn-success btn-sm w-100">Assignar</button>
                                 </td>
                             </form>
                         </tr>

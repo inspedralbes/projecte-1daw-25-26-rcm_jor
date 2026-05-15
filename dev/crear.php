@@ -35,13 +35,13 @@ $departaments = $mysqli->query("
 
                 <label class="mt-2" for="descripcio">Descripció:</label><br>
                 <textarea class="form-control border-secondary" name="Descripcio" id="descripcio" rows="2"></textarea><br>
-                <button type="submit" class="btn btn-success"name="registrar">Registrar</button>
+                <button type="submit" class="btn btn-success text-black"name="registrar">Registrar</button>
             </fieldset>
         </form>
     </div>
 </main>
   <div class="mt-auto mb-5 px-2">
-        <a href="index.php" class="btn btn-danger"name="tornar">
+        <a href="index.php" class="btn btn-danger text-black"name="tornar">
             Tornar
         </a>
     </div>
