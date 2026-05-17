@@ -83,4 +83,12 @@ Un cop finalitzat el procés, ja pots obrir el teu navegador i accedir a: http:/
 ## 🌐 Producció i Desplegament
 L'aplicació web està publicada i completament operativa a la següent adreça oficial del centre:
 
-🔗 http://g4.daw.inspedralbes.cat
+🔗 http://grup4.daw.inspedralbes.cat
+---
+
+## 📊 Diagrames i Wireframes
+
+A continuació es detalla la documentació de disseny del projecte:
+
+* 📄 **[Descarregar Diagrama de casos d'ús (PDF)](Diagrames/CASOS_DE_US.pdf)**
+* 🗄️ **[Descarregar Diagrama del model E-R (PDF)](Diagrames/model_er.pdf)**
