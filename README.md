@@ -83,7 +83,7 @@ Un cop finalitzat el procés, ja pots obrir el teu navegador i accedir a: http:/
 ## 🌐 Producció i Desplegament
 L'aplicació web està publicada i completament operativa a la següent adreça oficial del centre:
 
-🔗 http://grup4.daw.inspedralbes.cat
+🔗 [http://grup4.daw.inspedralbes.cat](http://grup4.daw.inspedralbes.cat/index.php)
 ---
 
 ## 📊 Diagrames i Wireframes
@@ -95,3 +95,4 @@ A continuació es detalla la documentació de disseny del projecte:
 
 ### 🗄️ Diagrama del model E-R
 ![Diagrama del model E-R](Diagrames/esquema_bdd.png)
+Enllaç del penpot: https://design.penpot.app/#/view?file-id=1060707d-bef0-807f-8007-e9a3a18732c3&page-id=1060707d-bef0-807f-8007-e9a3a18732c4&section=interactions&index=0&share-id=d59e570a-957f-8047-8007-eea880b282bb
