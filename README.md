@@ -90,5 +90,8 @@ L'aplicació web està publicada i completament operativa a la següent adreça 
 
 A continuació es detalla la documentació de disseny del projecte:
 
-* 📄 **[Descarregar Diagrama de casos d'ús (PDF)](Diagrames/CASOS_DE_US.pdf)**
-* 🗄️ **[Descarregar Diagrama del model E-R (PDF)](Diagrames/model_er.pdf)**
+### 👥 Diagrama de casos d'ús
+![Diagrama de casos d'ús](Diagrames/diagrama_casos_de_us.png)
+
+### 🗄️ Diagrama del model E-R
+![Diagrama del model E-R](Diagrames/esquema_bdd.png)
