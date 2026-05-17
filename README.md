@@ -54,7 +54,7 @@ Segueix aquests passos per desplegar el projecte en entorn local:
 
 ### 1. Clonar el projecte
 Aquest comandament descarrega el codi i et posiciona a la carpeta del repositori:
-git clone https://github.com/inspedralbes/projecte-1daw-25-26-g4_sistema.git
+git clone[ https://github.com/inspedralbes/projecte-1daw-25-26-g4_sistema.git](https://github.com/inspedralbes/projecte-1daw-25-26-rcm_jor.git)
 cd projecte-1daw-25-26-g4_sistema
 
 ### 2. Variables d'entorn
