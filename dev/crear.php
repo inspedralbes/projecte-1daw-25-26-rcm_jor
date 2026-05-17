@@ -52,6 +52,7 @@ $departaments = $mysqli->query("
             const camps = form.querySelectorAll('input, select, textarea');
             let buit = false;
 
+     
             camps.forEach(camp => {
                 if (camp.value.trim() === "") {
                     buit = true;
@@ -61,8 +62,17 @@ $departaments = $mysqli->query("
             if (buit) {
                 e.preventDefault();
                 alert("Error: Has d'omplir tots els camps");
+                return; 
+            }
+
+         
+            const descripcio = form.querySelector('#descripcio');
+            if (descripcio && descripcio.value.trim().length < 20) {
+                e.preventDefault(); 
+                alert("Error: La descripció ha de tenir almenys 20 caràcters");
             }
         };
     });
 </script>
+<?php include_once "footer.php"; ?>
 <?php include_once "footer.php"; ?>
