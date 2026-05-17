@@ -53,23 +53,33 @@ Aquesta plataforma és una aplicació web modular dissenyada per optimitzar, org
 Segueix aquests passos per desplegar el projecte en entorn local:
 
 ### 1. Clonar el projecte
-```bash
-git clone [https://github.com/inspedralbes/projecte-1daw-25-26-g4_sistema.git](https://github.com/inspedralbes/projecte-1daw-25-26-g4_sistema.git)
+Aquest comandament descarrega el codi i et posiciona a la carpeta del repositori:
+git clone https://github.com/inspedralbes/projecte-1daw-25-26-g4_sistema.git
 cd projecte-1daw-25-26-g4_sistema
-### 2. Variables d'entorn
-Crea un arxiu anomenat `.env` dins del directori `src/` i configura els paràmetres de connexió:
 
-```env
+### 2. Variables d'entorn
+Crea un arxiu anomenat .env dins del directori src/ i configura els paràmetres de connexió:
 DB_HOST=db
 DB_NAME=g4_incidencies_db
 DB_USER=g4_developer
 DB_PASS=g4_secure_password
 MONGODB_INITDB_ROOT_USERNAME=admin_g4
 MONGODB_INITDB_ROOT_PASSWORD=secret_g4
+
+### 3. Instal·lar les dependències
+Accedeix a la carpeta del codi font i descarrega els paquets de Composer:
 cd src
 composer install
 cd ..
+
+### 4. Aixecar els contenidors de Docker
+Inicia l'arquitectura en segon pla:
 docker-compose up -d
+
+Un cop finalitzat el procés, ja pots obrir el teu navegador i accedir a: http://localhost:8080
+
+---
+
 ## 🌐 Producció i Desplegament
 L'aplicació web està publicada i completament operativa a la següent adreça oficial del centre:
 
