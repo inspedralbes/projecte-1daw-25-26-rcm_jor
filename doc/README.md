@@ -17,3 +17,5 @@ Llistat d'alguns dels punts que han de quedar explicats en aquesta carpeta. Pode
  * Aplicació Android
  * Altres elements importants.
  * ...
+
+Enllaç del penpot: https://design.penpot.app/#/view?file-id=1060707d-bef0-807f-8007-e9a3a18732c3&page-id=1060707d-bef0-807f-8007-e9a3a18732c4&section=interactions&index=0&share-id=d59e570a-957f-8047-8007-eea880b282bb
